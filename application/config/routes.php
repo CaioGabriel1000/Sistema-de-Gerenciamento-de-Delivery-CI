@@ -49,6 +49,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+// Cada rota (que seria o link da url) faz referência ao controller "Home" e a função que carrega aquela página.
+
+// Rota da pagina inicial.
 $route['default_controller'] = 'Home';
+
+// Rota do carrinho de compras.
+$route['carrinho'] = 'Home/carrinho';
+
+// Rota do erro 404.
 $route['404_override'] = '';
+
 $route['translate_uri_dashes'] = FALSE;
