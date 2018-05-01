@@ -27,12 +27,10 @@ class Home extends CI_Controller {
 	{
 		$dados['title'] = "SGD - Home";
 
-		// Carregando o head, o corpo da página e o footer
+		// Carregando o head, o corpo da página com o footer
 		$this->load->view('components/head', $dados);
 
 		$this->load->view('home');
-
-		$this->load->view('components/footer');
 	
 	}
 
@@ -45,8 +43,18 @@ class Home extends CI_Controller {
 		$this->load->view('components/head', $dados);
 
 		$this->load->view('carrinho');
+	
+	}
 
-		$this->load->view('components/footer');
+	// Página de login
+	public function login()
+	{
+		$dados['title'] = "SGD - Login";
+
+		
+		$this->load->view('components/head', $dados);
+
+		$this->load->view('login');
 	
 	}
 }

@@ -58,6 +58,9 @@ $route['default_controller'] = 'Home';
 // Rota do carrinho de compras.
 $route['carrinho'] = 'Home/carrinho';
 
+// Rota do carrinho de compras.
+$route['login'] = 'Home/login';
+
 // Rota do erro 404.
 $route['404_override'] = '';
 

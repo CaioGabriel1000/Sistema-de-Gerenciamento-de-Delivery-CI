@@ -1,3 +1,5 @@
+<body>
+
 <!-- div container agrupa todos os elementos do body, será fechada apenas no footer -->
 <div class="container">
 
@@ -65,3 +67,10 @@
 		</ul>
 	</div>
 </div>
+
+<br>
+
+<br>
+
+<!-- Carregando o footer -->
+<?php $this->load->view('components/footer'); ?>
