@@ -25,6 +25,7 @@
 		</form>
 	</div>
 </div>
+</div>
 
 <!-- Carregando o footer -->
 <?php $this->load->view('components/footer'); ?>
