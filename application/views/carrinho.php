@@ -1,4 +1,4 @@
-<body>
+
 
 <!-- div container agrupa todos os elementos do body, será fechada apenas no footer -->
 <div class="container">
@@ -71,6 +71,8 @@
 <br>
 
 <br>
+<!-- Fechando o container, body e html do corpo da página. Que devem ser abertos na view carregada antes dessa. -->
+</div>
 
 <!-- Carregando o footer -->
 <?php $this->load->view('components/footer'); ?>
