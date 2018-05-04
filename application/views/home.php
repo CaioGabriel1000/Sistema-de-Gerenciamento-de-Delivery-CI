@@ -1,5 +1,4 @@
 
-
 <!-- PESQUISAR --> 
 <div id="pesquisar" class="col-xs-12" >	
 	<input type="textarea" name="" placeholder="Pesquisar"> <i class="glyphicon glyphicon-search" id="iconesearch"></i>
@@ -205,6 +204,7 @@
 
 
 
+
     
 
 
@@ -214,7 +214,12 @@
 	
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 

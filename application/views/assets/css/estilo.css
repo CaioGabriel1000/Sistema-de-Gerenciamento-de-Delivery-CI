@@ -1,7 +1,4 @@
 
-body {
-	background-color: lightgray; !important
-}
  #pesquisar{
             background-color: #fff;
     position: fixed;
@@ -113,4 +110,3 @@ body {
 #addproduto{
     margin-top: 20px;
 }
-

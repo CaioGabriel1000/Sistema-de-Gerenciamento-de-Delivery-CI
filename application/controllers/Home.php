@@ -25,7 +25,18 @@ class Home extends CI_Controller {
 	// Página Inicial
 	public function index()
 	{
-		$dados['title'] = "SGD - Home";
+		$dados['title'] = "SGD";
+
+		// Carregando o head, o corpo da página com o footer
+		$this->load->view('components/head', $dados);
+
+		$this->load->view('paginaInicial');
+	
+	}
+
+	public function loja()
+	{
+		$dados['title'] = "SGD - Loja";
 
 		// Carregando o head, o corpo da página com o footer
 		$this->load->view('components/head', $dados);
@@ -37,10 +48,6 @@ class Home extends CI_Controller {
 	// Página do carrinho de compras
 	public function carrinho()
 	{
-		$dados['title'] = "SGD - Carrinho";
-
-		
-		$this->load->view('components/head', $dados);
 
 		$this->load->view('carrinho');
 	
