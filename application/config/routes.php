@@ -53,16 +53,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // Cada rota (que seria o link da url) faz referência ao controller "Home" e a função que carrega aquela página.
 
 // Rota da pagina inicial.
-$route['default_controller'] = 'Home';
+$route['default_controller'] = 'Pagina/index';
 
-// Rota da pagina inicial.
-$route['home'] = 'Home/loja';
-
-// Rota do carrinho de compras.
-$route['carrinho'] = 'Home/carrinho';
+// Rota da loja.
+$route['loja'] = 'Pagina/loja';
 
 // Rota do carrinho de compras.
-$route['login'] = 'Home/login';
+$route['carrinho'] = 'Pagina/carrinho';
+
+// Rota login e cadastro.
+$route['entrar'] = 'Pagina/entrarCadastrar';
 
 // Rota do erro 404.
 $route['404_override'] = '';

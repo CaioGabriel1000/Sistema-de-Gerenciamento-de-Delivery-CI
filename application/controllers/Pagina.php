@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Pagina extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -28,40 +28,42 @@ class Home extends CI_Controller {
 		$dados['title'] = "SGD";
 
 		// Carregando o head, o corpo da página com o footer
-		$this->load->view('components/head', $dados);
+		$this->load->view('components/head.php', $dados);
 
-		$this->load->view('paginaInicial');
+		$this->load->view('index.php');
 	
 	}
 
+	// Página da loja
 	public function loja()
 	{
 		$dados['title'] = "SGD - Loja";
 
-		// Carregando o head, o corpo da página com o footer
-		$this->load->view('components/head', $dados);
+		$this->load->view('components/head.php', $dados);
 
-		$this->load->view('home');
+		$this->load->view('loja.php');
 	
 	}
 
 	// Página do carrinho de compras
 	public function carrinho()
 	{
+		$dados['title'] = "SGD - Carrinho";
 
-		$this->load->view('carrinho');
+		$this->load->view('components/head.php', $dados);
+
+		$this->load->view('carrinho.php');
 	
 	}
 
-	// Página de login
-	public function login()
+	// Página de login e cadastro
+	public function entrarCadastrar()
 	{
 		$dados['title'] = "SGD - Login";
 
-		
-		$this->load->view('components/head', $dados);
+		$this->load->view('components/head.php', $dados);
 
-		$this->load->view('login');
+		$this->load->view('entrar_cadastrar.php');
 	
 	}
 }

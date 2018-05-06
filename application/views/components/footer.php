@@ -1,27 +1,38 @@
 <!-- Rodape -->
+<nav id="rodape" class="navbar fixed-bottom navbar-expand d-flex justify-content-between">
 
-<div id="rodape-menu" >
-	<div id="home" class="col-xs-3">
-		<i class="glyphicon glyphicon-home"></i>
-	</div>
-	<div id="carrinho" class="col-xs-3">
-		<i class="glyphicon glyphicon-shopping-cart"></i>
-	</div>
-	<div id="lista" class="col-xs-3">
-		<i class="glyphicon glyphicon-menu-hamburger"></i>
-	</div>
-	<div id="usuario" class="col-xs-3">
-		<i class="glyphicon glyphicon-user"></i>
-	</div>
-</div>
+		<div class="col-md-3 rodape-item">
+			<div class="row d-flex justify-content-center">
+				<a href="<?=base_url('/loja')?>">
+					<i class="fas fa-home fa-2x"></i> <label class="d-none d-md-block"> &nbsp Loja </label>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-3 rodape-item">
+			<div class="row d-flex justify-content-center">
+				<a href="<?=base_url('/carrinho')?>">
+					<i class="fas fa-shopping-cart fa-2x"></i> <label class="d-none d-md-block"> &nbsp Carrinho</label>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-3 rodape-item">
+			<div class="row d-flex justify-content-center">
+				<a href="<?=base_url('/pedidos')?>">
+					<i class="fas fa-motorcycle fa-2x"></i> <label class="d-none d-md-block">&nbsp Meus Pedidos</label>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-3 rodape-item">
+			<div class="row d-flex justify-content-center">
+				<a href="<?=base_url('/cliente')?>">
+					<i class="fas fa-user fa-2x"></i>  <label class="d-none d-md-block">&nbsp Minha Conta</label>
+				</a>
+			</div>			
+		</div>
 
-
+</nav>
 
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
