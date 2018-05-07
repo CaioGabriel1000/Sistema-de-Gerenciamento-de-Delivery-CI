@@ -44,7 +44,7 @@
 
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-8">
-				<form class="form-signin">
+				<form class="form-signin" id="form-cadastro" name="form-cadastro" method="post">
 					<div class="py-3 text-center">
 						<div class="d-block mx-auto mb-3">
 							<i class="fas fa-edit fa-5x"></i>
@@ -55,33 +55,33 @@
 
 						<div class="form-label-group col-md-6">
 							<label for="inputNomeCadastro">Nome</label>
-							<input id="inputNomeCadastro" class="form-control" placeholder="Nome" required="" type="text">
+							<input id="inputNomeCadastro" name="inputNomeCadastro" class="form-control" placeholder="Nome" required="" type="text">
 						</div>
 
 						<div class="form-label-group col-md-6">
 							<label for="inputTelefoneCadastro">Telefone</label>
-							<input id="inputTelefoneCadastro" class="form-control" placeholder="Telefone" required="" type="text">
+							<input id="inputTelefoneCadastro" name="inputTelefoneCadastro" class="form-control" placeholder="Telefone" required="" type="text">
 						</div>
 
 						<div class="form-label-group col-md-12">
 							<label for="inputEmailCadastro">Email</label>
-							<input id="inputEmail" class="form-control" placeholder="Email" required="" type="email">
+							<input id="inputEmailCadastro" name="inputEmailCadastro" class="form-control" placeholder="Email" required="" type="email">
 						</div>
 
 						<div class="form-label-group col-md-6">
-							<label for="inputPasswordCadastro">Senha</label>
-							<input id="inputPassword" class="form-control" placeholder="Senha" required="" type="password">
+							<label for="inputSenhaCadastro">Senha</label>
+							<input id="inputSenhaCadastro" name="inputSenhaCadastro" class="form-control" placeholder="Senha" required="" type="password">
 						</div>
 
 						<div class="form-label-group col-md-6">
-							<label for="inputPasswordCadastro">Repita sua senha</label>
-							<input id="inputPassword" class="form-control" placeholder="Repita sua senha" required="" type="password">
+							<label for="inputSenhaCadastroRepetida">Repita sua senha</label>
+							<input id="inputSenhaCadastroRepetida" name="inputSenhaCadastroRepetida" class="form-control" placeholder="Repita sua senha" required="" type="password">
 						</div>
 
 					</div>
 
 					<div class="row d-flex justify-content-center p-3">
-						<button class="btn btn-lg btn-primary btn-block col-md-6" type="submit">Cadastrar</button>
+						<button id="btnCadastrar" name="btnCadastrar" class="btn btn-lg btn-primary btn-block col-md-6" type="submit">Cadastrar</button>
 					</div>
 
 				</form>
@@ -109,6 +109,10 @@
 
 <!-- Carregando o footer -->
 <?php $this->load->view('components/footer'); ?>
+
+<script type="text/javascript">
+
+</script>
 
 <!-- fechando o container, body e a tag html aberta no arquivo head.php -->
 </div>
