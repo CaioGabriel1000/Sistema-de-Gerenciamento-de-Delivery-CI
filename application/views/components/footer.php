@@ -11,21 +11,21 @@
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
 				<a href="<?=base_url('/carrinho')?>">
-					<i class="fas fa-shopping-cart fa-2x"></i> <label class="d-none d-md-block"> &nbsp Carrinho</label>
+					&nbsp &nbsp &nbsp<i class="fas fa-shopping-cart fa-2x"></i> <label class="d-none d-md-block"> &nbsp Carrinho</label>
 				</a>
 			</div>
 		</div>
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
 				<a href="<?=base_url('/pedidos')?>">
-					<i class="fas fa-motorcycle fa-2x"></i> <label class="d-none d-md-block">&nbsp Meus Pedidos</label>
+					&nbsp &nbsp &nbsp &nbsp &nbsp<i class="fas fa-motorcycle fa-2x"></i> <label class="d-none d-md-block">&nbsp Meus Pedidos</label>
 				</a>
 			</div>
 		</div>
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
 				<a href="<?=base_url('/cliente')?>">
-					<i class="fas fa-user fa-2x"></i>  <label class="d-none d-md-block">&nbsp Minha Conta</label>
+					&nbsp &nbsp &nbsp &nbsp &nbsp<i class="fas fa-user fa-2x"></i>  <label class="d-none d-md-block">&nbsp Minha Conta</label>
 				</a>
 			</div>			
 		</div>

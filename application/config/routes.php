@@ -62,7 +62,10 @@ $route['loja'] = 'Pagina/loja';
 $route['carrinho'] = 'Pagina/carrinho';
 
 // Rota login e cadastro.
-$route['entrar'] = 'Pagina/entrarCadastrar';
+$route['entrar'] = 'Cliente/index';
+
+// Rota login e cadastro.
+$route['cliente'] = 'Cliente/conta';
 
 // Rota do erro 404.
 $route['404_override'] = '';

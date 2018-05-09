@@ -56,14 +56,4 @@ class Pagina extends CI_Controller {
 	
 	}
 
-	// Página de login e cadastro
-	public function entrarCadastrar()
-	{
-		$dados['title'] = "SGD - Login";
-
-		$this->load->view('components/head.php', $dados);
-
-		$this->load->view('entrar_cadastrar.php');
-	
-	}
 }
