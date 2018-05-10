@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Pagina/index';
 
 // Rota da loja.
-$route['loja'] = 'Pagina/loja';
+$route['loja'] = 'Loja';
 
 // Rota do carrinho de compras.
 $route['carrinho'] = 'Pagina/carrinho';

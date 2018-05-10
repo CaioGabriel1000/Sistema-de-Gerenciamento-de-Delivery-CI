@@ -4,28 +4,28 @@
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
 				<a href="<?=base_url('/loja')?>">
-					<i class="fas fa-home fa-2x"></i> <label class="d-none d-md-block"> &nbsp Loja </label>
+					<i class="fas fa-home fa-2x"></i> <small class="d-none d-md-block"> &nbsp Loja </small>
 				</a>
 			</div>
 		</div>
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
 				<a href="<?=base_url('/carrinho')?>">
-					&nbsp &nbsp &nbsp<i class="fas fa-shopping-cart fa-2x"></i> <label class="d-none d-md-block"> &nbsp Carrinho</label>
+					&nbsp <i class="fas fa-shopping-cart fa-2x"></i> <small class="d-none d-md-block"> &nbsp Carrinho</small>
 				</a>
 			</div>
 		</div>
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
 				<a href="<?=base_url('/pedidos')?>">
-					&nbsp &nbsp &nbsp &nbsp &nbsp<i class="fas fa-motorcycle fa-2x"></i> <label class="d-none d-md-block">&nbsp Meus Pedidos</label>
+					&nbsp &nbsp &nbsp<i class="fas fa-motorcycle fa-2x"></i> <small class="d-none d-md-block">&nbsp Meus Pedidos</small>
 				</a>
 			</div>
 		</div>
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
 				<a href="<?=base_url('/cliente')?>">
-					&nbsp &nbsp &nbsp &nbsp &nbsp<i class="fas fa-user fa-2x"></i>  <label class="d-none d-md-block">&nbsp Minha Conta</label>
+					&nbsp &nbsp &nbsp<i class="fas fa-user fa-2x"></i>  <small class="d-none d-md-block">&nbsp Minha Conta</small>
 				</a>
 			</div>			
 		</div>

@@ -7,7 +7,7 @@
 <div class="tab-content" id="pills-tabContent">
 
 	<!-- Mensagem -->
-	<div class="row d-flex justify-content-center">
+	<div class="row d-flex justify-content-center p-1">
 		<p>
 			<?php
 				$mensagem = $this->session->flashdata('mensagem');
@@ -126,7 +126,7 @@
 <br>
 
 <!-- Carregando o footer -->
-<?php $this->load->view('components/footer'); ?>s
+<?php $this->load->view('components/footer'); ?>
 
 <!-- fechando o container, body e a tag html aberta no arquivo head.php -->
 </div>

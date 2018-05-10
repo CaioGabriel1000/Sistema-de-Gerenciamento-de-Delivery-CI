@@ -1,7 +1,4 @@
 <?php
-/* 
- * Gerado com CRUDigniter v3.2 
- */
  
 class Cliente extends CI_Controller{
 	function __construct()

@@ -12,3 +12,6 @@ body {
 .rodape-item i {
 	color: green; !important
 }
+a:hover {
+	text-decoration: none;
+}

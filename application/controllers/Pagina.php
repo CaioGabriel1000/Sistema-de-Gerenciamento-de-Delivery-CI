@@ -34,17 +34,6 @@ class Pagina extends CI_Controller {
 	
 	}
 
-	// Página da loja
-	public function loja()
-	{
-		$dados['title'] = "SGD - Loja";
-
-		$this->load->view('components/head.php', $dados);
-
-		$this->load->view('loja.php');
-	
-	}
-
 	// Página do carrinho de compras
 	public function carrinho()
 	{
