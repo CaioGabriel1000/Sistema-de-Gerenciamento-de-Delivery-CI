@@ -4,7 +4,9 @@ body {
 }
 /* Rodape */
 #rodape {
-	background-color: #DAD0F2; !important
+	background: #fff;
+    border: solid 1px #239636;
+    display: flex;
 }
 .rodape-item a {
 	color: green; !important
@@ -14,4 +16,7 @@ body {
 }
 a:hover {
 	text-decoration: none;
+}
+.album i{
+	color: green;
 }

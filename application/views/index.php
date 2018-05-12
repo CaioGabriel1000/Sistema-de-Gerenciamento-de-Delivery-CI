@@ -5,7 +5,7 @@
 
 <section class="text-center">
 	<div class="container">
-		<img src="<?=base_url('application/views/assets/img/logo.png')?>" class="img-fluid w-30">
+		<img src="application/views/assets/img/logo.png" class="img-fluid w-30"> 
 		<p class="lead text-muted">O Sistema de Gerenciamento de Delivery tem o objetivo de [...] e conta com as seguintes funções:</p>
 	</div>
 

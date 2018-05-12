@@ -1,5 +1,5 @@
 <!-- Rodape -->
-<nav id="rodape" class="navbar fixed-bottom navbar-expand d-flex justify-content-between">
+<nav id="rodape" class="navbar fixed-bottom navbar-expand justify-content-between">
 
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
