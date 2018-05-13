@@ -34,15 +34,4 @@ class Pagina extends CI_Controller {
 	
 	}
 
-	// Página do carrinho de compras
-	public function carrinho()
-	{
-		$dados['title'] = "SGD - Carrinho";
-
-		$this->load->view('components/head.php', $dados);
-
-		$this->load->view('carrinho.php');
-	
-	}
-
 }

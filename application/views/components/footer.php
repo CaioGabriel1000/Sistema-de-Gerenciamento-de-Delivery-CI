@@ -18,7 +18,7 @@
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
 				<a href="<?=base_url('/pedidos')?>">
-					&nbsp &nbsp &nbsp<i class="fas fa-motorcycle fa-2x"></i> <small class="d-none d-md-block">&nbsp Meus Pedidos</small>
+					&nbsp &nbsp &nbsp &nbsp<i class="fas fa-clipboard-list fa-2x"></i> <small class="d-none d-md-block">&nbsp Meus Pedidos</small>
 				</a>
 			</div>
 		</div>
@@ -33,10 +33,7 @@
 </nav>
 
 <!-- Bootstrap JS -->
-<script
-src="https://code.jquery.com/jquery-3.3.1.min.js"
-integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script 
 src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 

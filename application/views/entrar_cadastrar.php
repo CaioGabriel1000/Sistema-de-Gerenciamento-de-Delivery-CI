@@ -6,23 +6,11 @@
 <!-- Formulários -->
 <div class="tab-content" id="pills-tabContent">
 
-	<!-- Mensagem -->
-	<div class="row d-flex justify-content-center p-1">
-		<p>
-			<?php
-				$mensagem = $this->session->flashdata('mensagem');
-				if($mensagem){
-					echo $mensagem;
-				}
-			?>
-		</p>
-	</div>
-
 	<!-- Formulário de Login -->
 	<div class="tab-pane fade show active" id="form-login" role="tabpanel" aria-labelledby="form-login-tab">
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-6">
-				<form class="form-signin" id="form-login" name="form-login" role="form" method="post" action="<?php echo base_url('Cliente/login'); ?>">
+				<form class="form-signin" id="form-login" name="form-login" method="post">
 					<fieldset>
 						<div class="py-3 text-center">
 							<div class="d-block mx-auto">
@@ -41,11 +29,6 @@
 							<input id="inputSenhaLogin" name="inputSenhaLogin" class="form-control" placeholder="Senha" required="" type="password">
 						</div>
 
-						<!--<div class="checkbox mb-3">
-							<label>
-								<input value="lembrar" type="checkbox"> Lembrar
-							</label>
-						</div>-->
 						<div class="row d-flex justify-content-center p-3">
 							<button id="btnLogar" name="btnLogar" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="Register" name="register">Entrar</button>
 						</div>
@@ -61,7 +44,7 @@
 
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-6">
-				<form class="form-signin" id="form-cadastro" name="form-cadastro" role="form" method="post" action="<?php echo base_url('Cliente/add'); ?>">
+				<form class="form-signin" id="form-cadastro" name="form-cadastro" method="post">
 					<fieldset>
 						<div class="py-3 text-center">
 							<div class="d-block mx-auto">
@@ -86,15 +69,10 @@
 								<input id="inputEmailCadastro" name="inputEmailCadastro" class="form-control" placeholder="Email" required="" type="email">
 							</div>
 
-							<div class="form-label-group col-md-6">
+							<div class="form-label-group col-md-12">
 								<label for="inputSenhaCadastro">Senha</label>
 								<input id="inputSenhaCadastro" name="inputSenhaCadastro" class="form-control" placeholder="Senha" required="" type="password" value="">
 							</div>
-
-							<!--<div class="form-label-group col-md-6">
-								<label for="inputSenhaCadastroRepetida">Repita sua senha</label>
-								<input id="inputSenhaCadastroRepetida" name="inputSenhaCadastroRepetida" class="form-control" placeholder="Repita sua senha" required="" type="password">
-							</div>-->
 
 						</div>
 
@@ -127,6 +105,69 @@
 
 <!-- Carregando o footer -->
 <?php $this->load->view('components/footer'); ?>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	//Logar
+	$('#btnLogar').on('click',function(){
+
+		// Pegando valores dos inputs
+		var inputEmailLogin = $('#inputEmailLogin').val();
+		var inputSenhaLogin = $('#inputSenhaLogin').val();
+
+		// Ajax envia os dados para o Cliente/login
+		$.ajax({
+			type : "POST",
+			url  : "<?php echo base_url('Cliente/login')?>",
+			dataType : "JSON",
+			data : {
+				inputEmailLogin:inputEmailLogin,
+				inputSenhaLogin:inputSenhaLogin
+			},
+			success: function(data){
+				alert(data);
+			}
+		});
+
+		// Limpando o formulário
+		document.getElementById("#form-login").reset();
+		return false;
+	});
+
+	//Cadastrar
+	$('#btnCadastrar').on('click',function(){
+
+		// Pegando valores dos inputs
+		var inputNomeCadastro = $('#inputNomeCadastro').val();
+		var inputTelefoneCadastro = $('#inputTelefoneCadastro').val();
+		var inputEmailCadastro = $('#inputEmailCadastro').val();
+		var inputSenhaCadastro = $('#inputSenhaCadastro').val();
+
+		// Ajax envia os dados para o Cliente/add
+		$.ajax({
+			type : "POST",
+			url  : "<?php echo base_url('Cliente/add')?>",
+			dataType : "JSON",
+			data : {
+				inputNomeCadastro:inputNomeCadastro,
+				inputTelefoneCadastro:inputTelefoneCadastro,
+				inputEmailCadastro:inputEmailCadastro,
+				inputSenhaCadastro:inputSenhaCadastro
+			},
+			success: function(data){
+				alert(data);
+			}
+		});
+
+		// Limpando o formulário
+		document.getElementById("#form-cadastro").reset();
+		return false;
+	});
+});
+
+</script>
 
 <!-- fechando o container, body e a tag html aberta no arquivo head.php -->
 </div>

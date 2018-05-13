@@ -33,7 +33,7 @@ class Cliente_model extends CI_Model
 	function add_cliente($params)
 	{
 		$this->db->insert('cliente',$params);
-		//return $this->db->insert_id();
+		return $this->db->insert_id();
 	}
 
 	/*
@@ -67,7 +67,7 @@ class Cliente_model extends CI_Model
 		$query=$this->db->get();
 
 		if($query->num_rows()>0){
-			return true;
+			return $query->row_array();
 		}else{
 			return false;
 		}

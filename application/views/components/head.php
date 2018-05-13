@@ -9,7 +9,7 @@
     <meta name="author" content="Caio Gabriel, Jean Douglas, Matheus Landin, Marcus Vinicius, Ronaldo Ribeiro, Thales Henrique">
 
     <!-- Icone site (Fav Icon)-->
-    <link rel="shortcut icon" href="application/views/assets/img/icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?=base_url('application/views/assets/img/icon.ico')?>" type="image/x-icon">
    
 	<!-- Bootstrap CSS -->
 	<link 
@@ -22,8 +22,7 @@
 	<link 
 	rel="stylesheet" 
 	type="text/css" 
-	href="application/views/assets/css/estilo.css"
-	>
+	href="<?=base_url('application/views/assets/css/estilo.css')?>"	>
 
 	<!-- Icones Font Awesome -->
 	<link 

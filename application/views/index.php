@@ -5,8 +5,9 @@
 
 <section class="text-center">
 	<div class="container">
-		<img src="application/views/assets/img/logo.png" class="img-fluid w-30"> 
-		<p class="lead text-muted">O Sistema de Gerenciamento de Delivery tem o objetivo de [...] e conta com as seguintes funções:</p>
+		<img src="application/views/assets/img/logo.png" class="img-fluid w-20" width="25%"> 
+		<p class="lead text-muted">O Sistema de Gerenciamento de Delivery está sendo desenvolvido com o objetivo de oferecer as empresas do ramo de delivery um sistema eficiente, amigável e economicamente atrativo. Por isso o SGD é open source, disponibilizado gratuitamente no <a href="https://github.com/CaioGabriel1000/Sistema-de-Gerenciamento-de-Delivery">github</a>, para que pequenas empresas possam ser informatizadas, tendo apenas um custo inicial de implantação.
+		<p class="lead text-muted">Este exemplo de utilização do sistema demonstra uma loja de delivery de fast food, contando com as seguintes funções:</p>
 	</div>
 
 	<!-- Conjunto de Ícones com texto -->
@@ -21,7 +22,7 @@
 						</div>
 						<div class="card-body">
 							<h3>Loja</h3>
-							<p class="card-text">Página inicial da loja com os produtos disponiveis.</p>
+							<p class="card-text">Página inicial da loja com os produtos disponíveis.</p>
 						</div>
 					</div>
 				</div>
@@ -41,7 +42,7 @@
 				<div class="col-md-3">
 					<div class="card mb-4 box-shadow">
 						<div class="d-flex justify-content-center">
-							<i class="fas fa-motorcycle fa-5x p-3"></i>
+							<i class="fas fa-clipboard-list fa-5x p-3"></i>
 						</div>
 						<div class="card-body">
 							<h3>Meus Pedidos</h3>

@@ -1,6 +1,6 @@
 <?php
  
-class Cliente extends CI_Controller{
+class Cliente extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
@@ -12,13 +12,16 @@ class Cliente extends CI_Controller{
 	 */
 	function index()
 	{
-		if(!isset($_SESSION['idCliente']))
-		{
+		if(!isset($_SESSION['idCliente'])) {
+
 			$dados['title'] = "SGD - Login";
 			$this->load->view('components/head.php', $dados);
 			$this->load->view('entrar_cadastrar.php');
+
 		} else {
+
 			$this->conta();
+
 		}
 	}
 
@@ -27,19 +30,23 @@ class Cliente extends CI_Controller{
 	 */
 	function conta()
 	{
-		if(isset($_SESSION['idCliente']))
-		{
+		if(isset($_SESSION['idCliente'])) {
+
 			$dados['title'] = "SGD - Conta";
 			$this->load->view('components/head.php', $dados);
 			$this->load->view('cliente_conta.php');
+
 		} else {
+
 			$this->index();
+
 		}
 	}
 
 	/*
 	 * Adicionando cliente
-	 * Verificando o email, caso já esteja cadastrado, o usuário é informado, caso ainda não esteja, os dados são salvos.
+	 * Verificando o email, caso já esteja cadastrado ou bloqueado, a mensagem é exibida com o erro
+	 * caso ainda não esteja, os dados são cadastrados.
 	 */
 	function add()
 	{
@@ -48,34 +55,49 @@ class Cliente extends CI_Controller{
 			'telefone' => $this->input->post('inputTelefoneCadastro'),
 			'email' => $this->input->post('inputEmailCadastro'),
 			'senha' => md5($this->input->post('inputSenhaCadastro')),
+			'status' => 'A',
 		);
 
 		$cadastrado = $this->Cliente_model->verificar_email($cliente['email']);
 
-		if ($cadastrado) {
-			$this->session->set_flashdata('mensagem', 'Email já cadastrado! Por favor, entre em sua conta.');
-			redirect('Cliente/index');
+		if ($cadastrado && $cadastrado['status'] != 'B') {
+
+			$mensagem = 'Email já cadastrado! Por favor, entre em sua conta.';
+			echo json_encode($mensagem);
+
+		} elseif ($cadastrado['status'] == 'B') {
+
+			$mensagem = 'Usuário bloqueado. Por favor, entre em contato com o suporte.';
+			echo json_encode($mensagem);
+
 		} else {
+
 			$this->Cliente_model->add_cliente($cliente);
-			$this->session->set_flashdata('mensagem', 'Cadastro realizado com sucesso! Por favor, entre em sua conta.');
-			redirect('Cliente/index');
+
+			$mensagem = 'Cadastro realizado com sucesso! Por favor, entre em sua conta.';
+			echo json_encode($mensagem);
+
 		}
-	}  
+
+	}
 
 	/*
 	 * Logando cliente
+	 * Verificando se o cliente esta cadastrado, caso esteja cadastrado e ativo o login é realizado
+	 * caso esteja bloqueado ou ainda não tenha cadastro o usuário é informado
 	 */
 	function login()
 	{
 
 		$cliente = array(
-		'email' => $this->input->post('inputEmailLogin'),
-		'senha' => md5($this->input->post('inputSenhaLogin'))
+			'email' => $this->input->post('inputEmailLogin'),
+			'senha' => md5($this->input->post('inputSenhaLogin'))
 		);
 
 		$logando = $this->Cliente_model->logar_cliente($cliente['email'],$cliente['senha']);
 
-		if ($logando) {
+		if ($logando['status'] == 'A') {
+
 			$this->session->set_userdata('idCliente',$logando['idCliente']);
 			$this->session->set_userdata('nome',$logando['nome']);
 			$this->session->set_userdata('telefone',$logando['telefone']);
@@ -83,9 +105,17 @@ class Cliente extends CI_Controller{
 
 			$this->conta();
 
-		} else {
-			$this->session->set_flashdata('mensagem', 'Email ou senha incorretos!');
-			redirect('Cliente/index');
+		} elseif ($logando['status'] == 'B') {
+
+			$mensagem = 'Usuário inativo ou bloqueado. Por favor, entre em contato com o suporte.';
+			echo json_encode($mensagem);
+
+		}
+		else {
+
+			$mensagem = 'Email ou senha incorretos!';
+			echo json_encode($mensagem);
+
 		}
 	}  
 
@@ -100,7 +130,7 @@ class Cliente extends CI_Controller{
 	 */
 	function edit($idCliente)
 	{   
-		// check if the cliente exists before trying to edit it
+
 		$data['cliente'] = $this->Cliente_model->get_cliente($idCliente);
 		
 		if(isset($data['cliente']['idCliente']))
@@ -112,6 +142,7 @@ class Cliente extends CI_Controller{
 					'telefone' => $this->input->post('telefone'),
 					'email' => $this->input->post('email'),
 					'senha' => $this->input->post('senha'),
+					'status' => $this->input->post('status'),
 				);
 
 				$this->Cliente_model->update_cliente($idCliente,$params);            
@@ -133,7 +164,6 @@ class Cliente extends CI_Controller{
 	{
 		$cliente = $this->Cliente_model->get_cliente($idCliente);
 
-		// check if the cliente exists before trying to delete it
 		if(isset($cliente['idCliente']))
 		{
 			$this->Cliente_model->delete_cliente($idCliente);

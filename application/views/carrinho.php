@@ -14,58 +14,64 @@
 <!-- Carrinho -->
 <div class="row justify-content-md-center">
 	<div class="col-md-8 col-xs-10 order-md-2 mb-4">
-		
-		<!-- Cabeçalho -->
-		<h4 class="d-flex justify-content-between align-items-center mb-2">
-			<span class="text-muted">Seus itens</span>
-			<span class="badge badge-secondary badge-pill">3</span>
-		</h4>
 
-		<!-- Lista de itens -->
+		<!-- Lista de produtos -->
 		<ul class="list-group mb-3">
-			<li class="list-group-item d-flex justify-content-between lh-condensed">
-				<div>
-					<h6 class="my-0">Produto 1 </h6>
-					<small class="text-muted">Descrição</small>
-				</div>
-				<span class="text-muted">R$ 12,00</span>
-				<button type="button" class="btn btn-danger btn-sm">
-					<i class="fas fa-times"></i> Remover
-				</button>
-			</li>
-			<li class="list-group-item d-flex justify-content-between lh-condensed">
-				<div>
-					<h6 class="my-0">Produto 2</h6>
-					<small class="text-muted">Descrição</small>
-				</div>
-				<span class="text-muted">R$ 8,00</span>
-				<button type="button" class="btn btn-danger btn-sm">
-					<i class="fas fa-times"></i> Remover
-				</button>
-			</li>
-			<li class="list-group-item d-flex justify-content-between lh-condensed">
-				<div>
-					<h6 class="my-0">Produto 3</h6>
-					<small class="text-muted">Descrição</small>
-				</div>
-				<span class="text-muted">R$ 5,00</span>
-				<button type="button" class="btn btn-danger btn-sm">
-					<i class="fas fa-times"></i> Remover
-				</button>
-			</li>
+			<?php 
 
-			<!-- Total e botão de finalizar pedido -->
-			<li class="list-group-item d-flex justify-content-between">
-				<span>Total (R$)</span>
-				<strong>R$ 25,00</strong>
-			</li>
-			<li class="list-group-item">
-				<a href="<?=base_url('/entrar')?>">
-					<button type="button" class="btn btn-primary float-right">
-						<i class="fas fa-check"></i> Finalizar Pedido
-					</button>
-				</a>
-			</li>
+			// Caso o carrinho esteja vazio a mensagem é exibida
+			if (!isset($carrinho['produtos'])) {
+				echo '
+					<li class="list-group-item d-flex justify-content-between lh-condensed">
+						<div>
+						<h6 class="my-0">Carrinho vazio</h6>
+						</div>
+					</li>
+				';
+
+			} else {
+
+				$valorTotal = 0;
+				// caso existam produtos no carrinho, os dados que vieram do controller são exibidos
+				foreach ($carrinho['produtos'] as $produtos => $p) {
+					echo '
+						<li class="list-group-item d-flex justify-content-between lh-condensed">
+							<div>
+								<h6 class="my-0">' . $p['quantidade'] . ' - ' . $p['nome'] . ' </h6>
+								<small class="text-muted">Descrição</small>
+							</div>
+							<span class="text-muted"> R$ ' . formatar_preco($p['preco']) . '</span>
+							<button type="button" class="btn btn-danger btn-sm" 
+								id="'. $p['idProduto'] . '"
+								name="'. $p['idProduto'] . '"
+								value="'. $p['idProduto'] . '" 
+								onclick="removerCarrinho('. $p['idProduto'] .')">
+								<i class="fas fa-times"></i> Remover
+							</button>
+						</li>
+					';
+					$valorTotal += ($p['preco'] * $p['quantidade']);
+				}
+
+				echo '<!-- Total e botão de finalizar pedido -->';
+				echo '
+					<li class="list-group-item d-flex justify-content-between">
+						<span>Total (R$)</span>
+						<strong>R$ '. formatar_preco($valorTotal) .'</strong>
+					</li>
+					';
+				echo '
+					<li class="list-group-item">
+						<a href="'. base_url('/pedido') .'">
+							<button type="button" class="btn btn-primary float-right">
+								<i class="fas fa-check"></i> Finalizar Pedido
+							</button>
+						</a>
+					</li>
+					';
+				$_SESSION['valorTotal'] = $valorTotal;
+			}
+			?>
 		</ul>
 	</div>
 </div>
@@ -76,6 +82,26 @@
 
 <!-- Carregando o footer -->
 <?php $this->load->view('components/footer'); ?>
+
+<script type="text/javascript">
+
+function removerCarrinho(idProduto) {
+
+	$.ajax({
+		type : "POST",
+		url  : "<?php echo base_url('Loja/removerCarrinho')?>",
+		dataType : "JSON",
+		data : {
+			idProduto:idProduto
+		},
+		success: function(data){
+			alert(data);
+		}
+	});
+	location.reload();
+}
+
+</script>
 
 <!-- fechando o container, body e a tag html aberta no arquivo head.php -->
 </div>

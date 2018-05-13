@@ -40,22 +40,20 @@
 						</p>
 				</div>
 				<div class="d-flex justify-content-between align-items-center w-100">
+						<div class="col-md-4 col-xs-3">
+							Quantidade: &nbsp
+							<select class="custom-select custom-select-sm col-md-12" id="<?php echo $p['idProduto']; ?>" name="<?php echo $p['idProduto']; ?>">
 
-					<div class="col-md-4 col-xs-3">
-						Quantidade: &nbsp
-						<select class="custom-select custom-select-sm col-md-12">
+								<?php for ($i=1; $i <= $p['quantidade'] ; $i++) { ?>
 
-							<?php for ($i=1; $i <= $p['quantidade'] ; $i++) { ?>
+									<option value=" <?php echo $i ?> "> <?php echo $i ?></option>
+									
+								<?php } ?>
 
-								<option value=" <?php echo $i ?> "> <?php echo $i ?></option>
-								
-							<?php } ?>
+							</select>
+						</div>
 
-						</select>
-					</div>
-
-					<button type="button" class="btn btn-success btn-sm"><i class="fas fa-cart-plus"></i> Adicionar ao carrinho</button>
-
+						<button type="button" class="btn btn-success btn-sm float-right position-relative  fixed-bottom" onclick="addCarrinho(<?php echo $p['idProduto']; ?>)"><i class="fas fa-cart-plus"></i> Adicionar ao carrinho</button>
 				</div>
 			</div>
 		</div>
@@ -70,6 +68,28 @@
 
 <!-- Carregando o footer -->
 <?php $this->load->view('components/footer'); ?>
+
+<script type="text/javascript">
+
+function addCarrinho(idProduto) {
+
+	var quantidade = document.getElementById(idProduto).value;
+
+	$.ajax({
+		type : "POST",
+		url  : "<?php echo base_url('Loja/add')?>",
+		dataType : "JSON",
+		data : {
+			idProduto:idProduto,
+			quantidade:quantidade
+		},
+		success: function(data){
+			alert(data);
+		}
+	});
+}
+
+</script>
 
 </div>
 

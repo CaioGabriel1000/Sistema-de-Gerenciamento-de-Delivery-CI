@@ -50,21 +50,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-// Cada rota (que seria o link da url) faz referência ao controller "Home" e a função que carrega aquela página.
+// Cada rota (a url acessada pelo usuário) faz referência a um método de um controller que carrega aquela página.
 
-// Rota da pagina inicial.
+// Rota da pagina inicial o index.
 $route['default_controller'] = 'Pagina/index';
 
 // Rota da loja.
-$route['loja'] = 'Loja';
+$route['loja'] = 'Loja/index';
 
 // Rota do carrinho de compras.
-$route['carrinho'] = 'Pagina/carrinho';
+$route['carrinho'] = 'Loja/carrinho';
 
-// Rota login e cadastro.
+// Rota do pedido.
+$route['pedido'] = 'Pedido/index';
+
+// Rota do login e cadastro.
 $route['entrar'] = 'Cliente/index';
 
-// Rota login e cadastro.
+// Rota da conta do cliente.
 $route['cliente'] = 'Cliente/conta';
 
 // Rota do erro 404.
