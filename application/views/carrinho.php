@@ -63,7 +63,7 @@
 				echo '
 					<li class="list-group-item">
 						<a href="'. base_url('/pedido') .'">
-							<button type="button" class="btn btn-primary float-right">
+							<button type="button" class="btn btn-success float-right">
 								<i class="fas fa-check"></i> Finalizar Pedido
 							</button>
 						</a>
@@ -71,6 +71,7 @@
 					';
 				$_SESSION['valorTotal'] = $valorTotal;
 			}
+			
 			?>
 		</ul>
 	</div>

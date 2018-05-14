@@ -21,16 +21,16 @@
 
 						<div class="form-label-group">
 							<label for="inputEmailLogin">Email</label>
-							<input id="inputEmailLogin" name="inputEmailLogin" class="form-control" placeholder="Email" required="" autofocus="" type="email">
+							<input id="inputEmailLogin" name="inputEmailLogin" class="form-control" placeholder="Email" required="" autofocus="" type="email" maxlength="45">
 						</div>
 
 						<div class="form-label-group">
 							<label for="inputSenhaLogin">Senha</label>
-							<input id="inputSenhaLogin" name="inputSenhaLogin" class="form-control" placeholder="Senha" required="" type="password">
+							<input id="inputSenhaLogin" name="inputSenhaLogin" class="form-control" placeholder="Senha" required="" type="password" value="" maxlength="45">
 						</div>
 
 						<div class="row d-flex justify-content-center p-3">
-							<button id="btnLogar" name="btnLogar" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="Register" name="register">Entrar</button>
+							<button id="btnLogar" name="btnLogar" class="btn btn-lg btn-success btn-block col-md-12" type="submit" value="Register" name="register">Entrar</button>
 						</div>
 					<fieldset>
 				</form>
@@ -56,28 +56,28 @@
 
 							<div class="form-label-group col-md-6">
 								<label for="inputNomeCadastro">Nome</label>
-								<input id="inputNomeCadastro" name="inputNomeCadastro" class="form-control" placeholder="Nome" required="" type="text">
+								<input id="inputNomeCadastro" name="inputNomeCadastro" class="form-control" placeholder="Nome" required="" type="text" maxlength="45">
 							</div>
 
 							<div class="form-label-group col-md-6">
 								<label for="inputTelefoneCadastro">Telefone</label>
-								<input id="inputTelefoneCadastro" name="inputTelefoneCadastro" class="form-control" placeholder="Telefone" required="" type="text">
+								<input id="inputTelefoneCadastro" name="inputTelefoneCadastro" class="form-control" placeholder="Telefone" required="" type="number">
 							</div>
 
 							<div class="form-label-group col-md-12">
 								<label for="inputEmailCadastro">Email</label>
-								<input id="inputEmailCadastro" name="inputEmailCadastro" class="form-control" placeholder="Email" required="" type="email">
+								<input id="inputEmailCadastro" name="inputEmailCadastro" class="form-control" placeholder="Email" required="" type="email" maxlength="45">
 							</div>
 
 							<div class="form-label-group col-md-12">
 								<label for="inputSenhaCadastro">Senha</label>
-								<input id="inputSenhaCadastro" name="inputSenhaCadastro" class="form-control" placeholder="Senha" required="" type="password" value="">
+								<input id="inputSenhaCadastro" name="inputSenhaCadastro" class="form-control" placeholder="Senha" required="" type="password" value="" maxlength="45">
 							</div>
 
 						</div>
 
 						<div class="row d-flex justify-content-center p-3">
-							<button id="btnCadastrar" name="btnCadastrar" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="Register" name="register">Cadastrar</button>
+							<button id="btnCadastrar" name="btnCadastrar" class="btn btn-lg btn-success btn-block col-md-12" type="submit" value="Register" name="register">Cadastrar</button>
 						</div>
 					</fieldset>
 				</form>
@@ -117,23 +117,27 @@ $(document).ready(function(){
 		var inputEmailLogin = $('#inputEmailLogin').val();
 		var inputSenhaLogin = $('#inputSenhaLogin').val();
 
-		// Ajax envia os dados para o Cliente/login
-		$.ajax({
-			type : "POST",
-			url  : "<?php echo base_url('Cliente/login')?>",
-			dataType : "JSON",
-			data : {
-				inputEmailLogin:inputEmailLogin,
-				inputSenhaLogin:inputSenhaLogin
-			},
-			success: function(data){
-				alert(data);
-			}
-		});
-
-		// Limpando o formulário
-		document.getElementById("#form-login").reset();
-		return false;
+		// verificando se os campos estão preenchidos
+		if (inputEmailLogin == "" || inputSenhaLogin == "") {
+			alert('Todos os campos são obrigatórios!');
+		} else {
+			// Ajax envia os dados para o Cliente/login
+			$.ajax({
+				type : "POST",
+				url  : "<?php echo base_url('Cliente/login')?>",
+				dataType : "JSON",
+				data : {
+					inputEmailLogin:inputEmailLogin,
+					inputSenhaLogin:inputSenhaLogin
+				},
+				success: function(data){
+					alert(data);
+				}
+			});
+			// Limpando o formulário
+			document.getElementById("#form-login").reset();
+			return false;
+		}
 	});
 
 	//Cadastrar
@@ -145,25 +149,29 @@ $(document).ready(function(){
 		var inputEmailCadastro = $('#inputEmailCadastro').val();
 		var inputSenhaCadastro = $('#inputSenhaCadastro').val();
 
-		// Ajax envia os dados para o Cliente/add
-		$.ajax({
-			type : "POST",
-			url  : "<?php echo base_url('Cliente/add')?>",
-			dataType : "JSON",
-			data : {
-				inputNomeCadastro:inputNomeCadastro,
-				inputTelefoneCadastro:inputTelefoneCadastro,
-				inputEmailCadastro:inputEmailCadastro,
-				inputSenhaCadastro:inputSenhaCadastro
-			},
-			success: function(data){
-				alert(data);
-			}
-		});
-
-		// Limpando o formulário
-		document.getElementById("#form-cadastro").reset();
-		return false;
+		// verificando se os campos estão preenchidos
+		if (inputNomeCadastro == "" || inputTelefoneCadastro == "" || inputEmailCadastro == "" || inputSenhaCadastro == "") {
+			alert('Todos os campos são obrigatórios!');
+		} else {
+			// Ajax envia os dados para o Cliente/add
+			$.ajax({
+				type : "POST",
+				url  : "<?php echo base_url('Cliente/add')?>",
+				dataType : "JSON",
+				data : {
+					inputNomeCadastro:inputNomeCadastro,
+					inputTelefoneCadastro:inputTelefoneCadastro,
+					inputEmailCadastro:inputEmailCadastro,
+					inputSenhaCadastro:inputSenhaCadastro
+				},
+				success: function(data){
+					alert(data);
+				}
+			});
+			// Limpando o formulário
+			document.getElementById("#form-cadastro").reset();
+			return false;
+		}
 	});
 });
 

@@ -17,15 +17,15 @@
 		</div>
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
-				<a href="<?=base_url('/pedidos')?>">
-					&nbsp &nbsp &nbsp &nbsp<i class="fas fa-clipboard-list fa-2x"></i> <small class="d-none d-md-block">&nbsp Meus Pedidos</small>
+				<a href="<?=base_url('/pedido_cliente')?>">
+					&nbsp &nbsp &nbsp &nbsp <i class="fas fa-clipboard-list fa-2x"></i> <small class="d-none d-md-block">&nbsp Meus Pedidos</small>
 				</a>
 			</div>
 		</div>
 		<div class="col-md-3 rodape-item">
 			<div class="row d-flex justify-content-center">
 				<a href="<?=base_url('/cliente')?>">
-					&nbsp &nbsp &nbsp<i class="fas fa-user fa-2x"></i>  <small class="d-none d-md-block">&nbsp Minha Conta</small>
+					&nbsp &nbsp &nbsp <i class="fas fa-user fa-2x"></i>  <small class="d-none d-md-block">&nbsp Minha Conta</small>
 				</a>
 			</div>			
 		</div>

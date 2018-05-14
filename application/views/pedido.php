@@ -14,13 +14,14 @@
 
 <hr>
 
+<div class="row d-flex justify-content-center mb-3">
+	<small>Forma de entrega: </small>
+</div>
+
 <div class="row d-flex justify-content-center">
 
 
-	<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-		<li class="nav-item">
-			<a class="nav-link disabled" href="#">Forma de entrega: </a>
-		</li>
+	<ul class="nav nav-pills" id="pills-tab" role="tablist">
 		<li class="nav-item">
 			<a class="nav-link active" id="form-retirar-tab" data-toggle="pill" href="#form-retirar" role="tab" aria-controls="form-retirar" aria-selected="true">Retirar no local </a>
 		</li>
@@ -44,13 +45,13 @@
 					<fieldset>
 						<div class="row">
 							<div class="form-label-group col-md-12">
-								<label for="observacoes">Observações sobre o pedido</label>
-								<input id="observacoes" name="observacoes" class="form-control" placeholder="Observações" required="" autofocus="" type="text">
+								<label for="observacoesRetirar">Observações sobre o pedido</label>
+								<input id="observacoesRetirar" name="observacoesRetirar" class="form-control" placeholder="Observações" required="" autofocus="" type="text" maxlength="45">
 							</div>
 
 							<div class="form-label-group col-md-12">
 								<label for="">Endereço para retirar o pedido</label>
-								<input class="form-control" type="text" placeholder="Rua X, número Y, bairro Centro, BH" readonly>
+								<input class="form-control" type="text" placeholder="Rua X, número Y. Bairro Centro. Belo Horizonte" readonly>
 							</div>
 
 							<div class="form-label-group col-md-12">
@@ -59,7 +60,7 @@
 							</div>
 
 							<div class="col-md-12 p-3">
-								<button id="btnRetirar" name="btnRetirar" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="Register" name="register">Finalizar pedido</button>
+								<button id="tipoEntrega" name="tipoEntrega" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="RETIRAR">Finalizar pedido</button>
 							</div>
 						</div>
 					<fieldset>
@@ -74,56 +75,71 @@
 
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-6">
-				<form class="form-signin" id="form-entregar" name="form-entregar" method="post">
+				<form class="form-signin" id="form-entregar" name="form-entregar" method="post" action="<?php echo base_url('Pedido/add') ?>">
 					<fieldset>
 						<div class="row">
 
 							<div class="form-label-group col-md-6">
 								<label for="cidade">Cidade</label>
-								<select class="custom-select" id="cidade">
-									<option value="1">Belo Horizonte</option>
-									<option value="2">Sabará</option>
-								</select>
+								<select class="custom-select" id="cidade_idCidade" name="cidade_idCidade">
+									<?php 
+										foreach ($endereco['cidades'] as $cidades => $c) {
+											echo '
+												<option value="'. $c['idCidade'] .'">'. $c['nome'] .'</option>
+											';
+										}
+									 ?>
+								 </select>
 							</div>
 
 							<div class="form-label-group col-md-6">
 								<label for="bairro">Bairro</label>
-								<select class="custom-select" id="bairro">
-									<option value="1">Centro</option>
-									<option value="2">Horto</option>
+								<select class="custom-select" id="bairro_idBairro" name="bairro_idBairro">
+									<?php 
+										foreach ($endereco['bairros'] as $bairros => $b) {
+											echo '
+												<option value="'. $b['idBairro'] .'">'. $b['nome'] .'</option>
+											';
+										}
+									 ?>
 								</select>
 							</div>
 
 							<div class="form-label-group col-md-8">
-								<label for="inputEndereco">Logradouro</label>
-								<input id="inputEndereco" name="inputEndereco" class="form-control" placeholder="Logradouro" required="" type="text">
+								<label for="logradouro">Logradouro</label>
+								<input id="logradouro" name="logradouro" class="form-control" placeholder="Logradouro" required="" type="text" maxlength="45">
 							</div>
 
 							<div class="form-label-group col-md-4">
-								<label for="inputNumero">Número</label>
-								<input id="inputNumero" name="inputNumero" class="form-control" placeholder="Número" required="" type="text">
+								<label for="numero">Número</label>
+								<input id="numero" name="numero" class="form-control" placeholder="Número" required="" type="text" maxlength="10">
 							</div>
 
-							<div class="form-label-group col-md-12">
-								<label for="observacoesEntregar">Observações sobre o pedido</label>
-								<input id="observacoesEntregar" name="observacoesEntregar" class="form-control" placeholder="Observações" required="" autofocus="" type="text">
+							<div class="form-label-group col-md-6">
+								<label for="complemento">Complemento</label>
+								<input id="complemento" name="complemento" class="form-control" placeholder="Complemento" required="" type="text" maxlength="45">
 							</div>
 
-							<div class="form-label-group col-md-12">
+							<div class="form-label-group col-md-6">
+								<label for="observacoesEntrega">Observações sobre o pedido</label>
+								<input id="observacoesEntrega" name="observacoesEntrega" class="form-control" placeholder="Observações" required="" autofocus="" type="text">
+							</div>
+
+							<div class="form-label-group col-md-6">
 								<label for="inputSenharetirar">Valor Total</label>
 								<input class="form-control" type="text" placeholder="<?php echo 'R$ '.formatar_preco($_SESSION['valorTotal']); ?>" readonly>
 							</div>
 
 							<div class="form-label-group col-md-6">
 								<label for="bairro">Forma de pagamento</label>
-								<select class="custom-select" id="bairro">
-									<option value="1">Dinheiro</option>
-									<option value="2">Cartão</option>
+								<select class="custom-select" id="formaPagamento" name="formaPagamento">
+									<option value="D">Dinheiro</option>
+									<option value="C">Cartão</option>
 								</select>
 							</div>
 
 							<div class="col-md-12 p-3">
-								<button id="btnEntregar" name="btnEntregar" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="Register" name="register">Finalizar pedido</button>
+								<button id="tipoEntrega" name="tipoEntrega" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="ENTREGAR">Finalizar pedido</button>
 							</div>
 
 						</div>

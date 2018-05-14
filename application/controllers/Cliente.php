@@ -1,7 +1,8 @@
 <?php
  
 class Cliente extends CI_Controller {
-	function __construct()
+
+	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Cliente_model');
@@ -10,7 +11,7 @@ class Cliente extends CI_Controller {
 	/*
 	 * Página de login e cadastro do cliente
 	 */
-	function index()
+	public function index()
 	{
 		if(!isset($_SESSION['idCliente'])) {
 
@@ -20,25 +21,9 @@ class Cliente extends CI_Controller {
 
 		} else {
 
-			$this->conta();
-
-		}
-	}
-
-	/*
-	 * Página da conta do cliente
-	 */
-	function conta()
-	{
-		if(isset($_SESSION['idCliente'])) {
-
 			$dados['title'] = "SGD - Conta";
 			$this->load->view('components/head.php', $dados);
-			$this->load->view('cliente_conta.php');
-
-		} else {
-
-			$this->index();
+			$this->load->view('cliente.php');
 
 		}
 	}
@@ -48,7 +33,7 @@ class Cliente extends CI_Controller {
 	 * Verificando o email, caso já esteja cadastrado ou bloqueado, a mensagem é exibida com o erro
 	 * caso ainda não esteja, os dados são cadastrados.
 	 */
-	function add()
+	public function add()
 	{
 		$cliente = array(
 			'nome' => $this->input->post('inputNomeCadastro'),
@@ -65,7 +50,7 @@ class Cliente extends CI_Controller {
 			$mensagem = 'Email já cadastrado! Por favor, entre em sua conta.';
 			echo json_encode($mensagem);
 
-		} elseif ($cadastrado['status'] == 'B') {
+		} elseif ($cadastrado && $cadastrado['status'] == 'B') {
 
 			$mensagem = 'Usuário bloqueado. Por favor, entre em contato com o suporte.';
 			echo json_encode($mensagem);
@@ -86,7 +71,7 @@ class Cliente extends CI_Controller {
 	 * Verificando se o cliente esta cadastrado, caso esteja cadastrado e ativo o login é realizado
 	 * caso esteja bloqueado ou ainda não tenha cadastro o usuário é informado
 	 */
-	function login()
+	public function login()
 	{
 
 		$cliente = array(
@@ -110,8 +95,7 @@ class Cliente extends CI_Controller {
 			$mensagem = 'Usuário inativo ou bloqueado. Por favor, entre em contato com o suporte.';
 			echo json_encode($mensagem);
 
-		}
-		else {
+		} else {
 
 			$mensagem = 'Email ou senha incorretos!';
 			echo json_encode($mensagem);
@@ -119,7 +103,7 @@ class Cliente extends CI_Controller {
 		}
 	}  
 
-	function logout()
+	public function logout()
 	{
 		$this->session->sess_destroy();
 		$this->index();
@@ -128,49 +112,25 @@ class Cliente extends CI_Controller {
 	/*
 	 * Editando cliente
 	 */
-	function edit($idCliente)
+	public function edit($idCliente)
 	{   
 
 		$data['cliente'] = $this->Cliente_model->get_cliente($idCliente);
 		
-		if(isset($data['cliente']['idCliente']))
-		{
-			if(isset($_POST) && count($_POST) > 0)     
-			{   
-				$params = array(
-					'nome' => $this->input->post('nome'),
-					'telefone' => $this->input->post('telefone'),
-					'email' => $this->input->post('email'),
-					'senha' => $this->input->post('senha'),
-					'status' => $this->input->post('status'),
-				);
+		if(isset($data['cliente']['idCliente'])) {
+			$params = array(
+				'nome' => $this->input->post('nome'),
+				'telefone' => $this->input->post('telefone'),
+				'email' => $this->input->post('email'),
+				'senha' => $this->input->post('senha'),
+				'status' => $this->input->post('status'),
+			);
 
-				$this->Cliente_model->update_cliente($idCliente,$params);            
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-			return false;
-	} 
-
-	/*
-	 * Deletando cliente
-	 */
-	function remove($idCliente)
-	{
-		$cliente = $this->Cliente_model->get_cliente($idCliente);
-
-		if(isset($cliente['idCliente']))
-		{
-			$this->Cliente_model->delete_cliente($idCliente);
+			$this->Cliente_model->update_cliente($idCliente,$params);            
 			return true;
-		}
-		else
+		} else {
 			return false;
-	}
+		}
+	} 
 	
 }

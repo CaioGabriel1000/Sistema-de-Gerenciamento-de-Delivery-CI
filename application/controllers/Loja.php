@@ -1,12 +1,12 @@
 <?php
  
-class Loja extends CI_Controller{
+class Loja extends CI_Controller {
 
 	/*
 	 * Construtor adiciona o acesso aos produtos, funções de ajuda
 	 * e caso o carrinho da sessão ainda não exista ele é criado
 	 */
-	function __construct()
+	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Produto_model');
@@ -21,7 +21,7 @@ class Loja extends CI_Controller{
 	 * Página da loja
 	 * Selecionando todos os produtos ativos no banco e mostrando eles na página inicial da loja
 	 */
-	function index()
+	public function index()
 	{
 		$dados['produtos'] = $this->Produto_model->get_all_produto();
 		$dados['title'] = "SGD - Loja";
@@ -33,7 +33,7 @@ class Loja extends CI_Controller{
 	 * Página do carrinho de compras
 	 * selecionando as informações dos produtos que estão no carrinho do usuário, juntamente com a quantidade que havia sido escolhida e passando essas informações como parâmetro para o carrinho
 	 */
-	function carrinho() 
+	public function carrinho() 
 	{
 		$dados['title'] = "SGD - Carrinho";
 		$this->load->view('components/head.php', $dados);
@@ -49,7 +49,7 @@ class Loja extends CI_Controller{
 	/*
 	 * Adicionando produto ao carrinho
 	 */
-	function add()
+	public function add()
 	{
 
 		$idProduto = $this->input->post('idProduto');
@@ -64,7 +64,7 @@ class Loja extends CI_Controller{
 	/*
 	 * Removendo produto do carrinho
 	 */
-	function removerCarrinho()
+	public function removerCarrinho()
 	{
 		$idProduto = $this->input->post('idProduto');
 

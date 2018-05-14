@@ -7,7 +7,7 @@
 <nav class="navbar stick-top navbar-expand">
 
 	<div class="input-group mb-3">
-		<input type="text" class="form-control" placeholder="Pesquisar produtos" aria-label="Pesquisar produtos" aria-describedby="basic-addon2">
+		<input type="text" class="form-control" placeholder="Pesquisar produtos - ainda não implementada" aria-label="Pesquisar produtos" aria-describedby="basic-addon2">
 		<div class="input-group-append">
 			<button class="btn btn-outline-secondary" type="button">
 				<i class="fas fa-search"></i>
