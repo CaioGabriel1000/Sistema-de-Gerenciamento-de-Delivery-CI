@@ -133,8 +133,8 @@
 							<div class="form-label-group col-md-6">
 								<label for="bairro">Forma de pagamento</label>
 								<select class="custom-select" id="formaPagamento" name="formaPagamento">
-									<option value="D">Dinheiro</option>
-									<option value="C">Cartão</option>
+									<option value="dinheiro">Dinheiro</option>
+									<option value="cartão">Cartão</option>
 								</select>
 							</div>
 

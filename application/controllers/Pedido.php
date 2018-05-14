@@ -90,7 +90,7 @@ class Pedido extends CI_Controller {
 			$entrega = array(
 				'entregador' => $_SESSION['entregadorPadrao'],
 				'observacoes' => null,
-				'status' => 'A',
+				'status' => 'aberto',
 				'endereco_idEndereco' => $endereco_id, 
 			);
 
@@ -124,7 +124,7 @@ class Pedido extends CI_Controller {
 				'cliente_idCliente' => $_SESSION['idCliente'],
 				'valor' => $_SESSION['valorTotal'],
 				'observacoes' => $this->input->post('observacoes'),
-				'status' => 'A',
+				'status' => 'aberto',
 			);
 			
 			$pedido_id = $this->Pedido_model->add_pedido($pedido);
@@ -191,6 +191,30 @@ class Pedido extends CI_Controller {
 		}
 		else
 			return false;
+	}
+
+	/*
+	 * Pagina com todos os pedidos exibidos no gerenciamento
+	 * caso o admin não esteja logado ele é direcionado para o login do admin
+	 */
+	function gerenciamento() 
+	{
+		if(isset($_SESSION['idAdministrador'])) {
+
+			$dados['title'] = "SGD - Pedidos";
+			$this->load->view('components/head.php', $dados);
+
+			$pedidos = $this->Pedido_model->get_all_pedido();
+
+			$dados['pedidos'] = $pedidos;
+			
+			$this->load->view('gerenciamento/pedidos.php', $dados);
+
+		} else {
+
+			redirect('/gerenciamento');
+
+		}
 	}
 	
 }

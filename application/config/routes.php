@@ -73,6 +73,12 @@ $route['pedido_cliente'] = 'Pedido/cliente';
 // Rota do pedido.
 $route['pedido'] = 'Pedido/index';
 
+// Rota do gerenciamento
+$route['gerenciamento'] = 'Administrador/index';
+
+// Rota com os pedidos do gerenciamento
+$route['pedido_gerenciamento'] = 'Pedido/gerenciamento';
+
 // Rota do erro 404.
 $route['404_override'] = '';
 

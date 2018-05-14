@@ -1,7 +1,4 @@
 <?php
-/* 
- * Gerado com CRUDigniter v3.2 
- */
  
 class Administrador extends CI_Controller{
 	function __construct()
@@ -11,69 +8,55 @@ class Administrador extends CI_Controller{
 	} 
 
 	/*
-	 * Adicionando administrador
+	 * Página de login e cadastro do admin
 	 */
-	function add()
-	{   
-		if(isset($_POST) && count($_POST) > 0)     
-		{   
-			$params = array(
-				'usuario' => $this->input->post('usuario'),
-				'senha' => $this->input->post('senha'),
-			);
-			
-			$administrador_id = $this->Administrador_model->add_administrador($params);
-			return true;
+	public function index()
+	{
+		if(!isset($_SESSION['idAdministrador'])) {
+			$dados['title'] = "SGD - Gerenciamento Login";
+			$this->load->view('components/head.php', $dados);
+			$this->load->view('gerenciamento/entrar.php');
+
+		} else {
+
+			$this->load->view('gerenciamento/home.php');
+
 		}
-		else
-		{            
-			return false;        }
+	}
+
+	/*
+	 * Logando admin
+	 * Verificando se o admin esta cadastrado, caso esteja cadastrado o login é realizado salvando os dados da sessão
+	 */
+	public function login()
+	{
+
+		$admin = array(
+			'email' => $this->input->post('inputEmailLogin'),
+			'senha' => md5($this->input->post('inputSenhaLogin'))
+		);
+
+		$logando = $this->Administrador_model->logar_administrador($admin['email'],$admin['senha']);
+
+		if ($logando) {
+
+			$this->session->set_userdata('idAdministrador',$logando['idAdministrador']);
+			$this->session->set_userdata('email',$logando['email']);
+
+			$this->index();
+
+		} else {
+
+			$mensagem = 'Email ou senha incorretos!';
+			echo json_encode($mensagem);
+
+		}
 	}  
 
-	/*
-	 * Editando administrador
-	 */
-	function edit($idAdministrador)
-	{   
-		// check if the administrador exists before trying to edit it
-		$data['administrador'] = $this->Administrador_model->get_administrador($idAdministrador);
-		
-		if(isset($data['administrador']['idAdministrador']))
-		{
-			if(isset($_POST) && count($_POST) > 0)     
-			{   
-				$params = array(
-					'usuario' => $this->input->post('usuario'),
-					'senha' => $this->input->post('senha'),
-				);
-
-				$this->Administrador_model->update_administrador($idAdministrador,$params);            
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-			return false;
-	} 
-
-	/*
-	 * Deletando administrador
-	 */
-	function remove($idAdministrador)
+	public function logout()
 	{
-		$administrador = $this->Administrador_model->get_administrador($idAdministrador);
-
-		// check if the administrador exists before trying to delete it
-		if(isset($administrador['idAdministrador']))
-		{
-			$this->Administrador_model->delete_administrador($idAdministrador);
-			return true;
-		}
-		else
-			return false;
+		$this->session->sess_destroy();
+		$this->index();
 	}
 	
 }

@@ -40,17 +40,17 @@ class Cliente extends CI_Controller {
 			'telefone' => $this->input->post('inputTelefoneCadastro'),
 			'email' => $this->input->post('inputEmailCadastro'),
 			'senha' => md5($this->input->post('inputSenhaCadastro')),
-			'status' => 'A',
+			'status' => 'ativo',
 		);
 
 		$cadastrado = $this->Cliente_model->verificar_email($cliente['email']);
 
-		if ($cadastrado && $cadastrado['status'] != 'B') {
+		if ($cadastrado && $cadastrado['status'] != 'bloqueado') {
 
 			$mensagem = 'Email já cadastrado! Por favor, entre em sua conta.';
 			echo json_encode($mensagem);
 
-		} elseif ($cadastrado && $cadastrado['status'] == 'B') {
+		} elseif ($cadastrado && $cadastrado['status'] == 'bloqueado') {
 
 			$mensagem = 'Usuário bloqueado. Por favor, entre em contato com o suporte.';
 			echo json_encode($mensagem);
@@ -81,16 +81,16 @@ class Cliente extends CI_Controller {
 
 		$logando = $this->Cliente_model->logar_cliente($cliente['email'],$cliente['senha']);
 
-		if ($logando['status'] == 'A') {
+		if ($logando['status'] == 'ativo') {
 
 			$this->session->set_userdata('idCliente',$logando['idCliente']);
 			$this->session->set_userdata('nome',$logando['nome']);
 			$this->session->set_userdata('telefone',$logando['telefone']);
 			$this->session->set_userdata('email',$logando['email']);
 
-			$this->conta();
+			$this->index();
 
-		} elseif ($logando['status'] == 'B') {
+		} elseif ($logando['status'] == 'bloqueado') {
 
 			$mensagem = 'Usuário inativo ou bloqueado. Por favor, entre em contato com o suporte.';
 			echo json_encode($mensagem);

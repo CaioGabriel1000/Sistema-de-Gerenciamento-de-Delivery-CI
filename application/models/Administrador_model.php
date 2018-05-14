@@ -9,6 +9,25 @@ class Administrador_model extends CI_Model
     {
         parent::__construct();
     }
+
+    /*
+     * Logando administrador
+     */
+    function logar_administrador($email, $senha)
+    {
+        $this->db->select('*');
+        $this->db->from('administrador');
+        $this->db->where('email',$email);
+        $this->db->where('senha',$senha);
+
+        if($query=$this->db->get())
+        {
+            return $query->row_array();
+        }
+        else{
+            return false;
+        }
+    }
     
     /*
      * Selecionando administrador por idAdministrador
