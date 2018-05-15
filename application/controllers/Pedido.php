@@ -100,7 +100,7 @@ class Pedido extends CI_Controller {
 				'valor' => $_SESSION['valorTotal'],
 				'formaPagamento' => $this->input->post('formaPagamento'),
 				'observacoes' => $this->input->post('observacoesEntrega'),
-				'status' => 'A',
+				'status' => 'ativo',
 				'cliente_idCliente' => $_SESSION['idCliente'],
 				'entrega_idEntrega' => $entrega_id,
 			);

@@ -21,12 +21,12 @@
 
 						<div class="form-label-group">
 							<label for="inputEmailLogin">Email</label>
-							<input id="inputEmailLogin" name="inputEmailLogin" class="form-control" placeholder="Email" required="" autofocus="" type="email" maxlength="45">
+							<input id="inputEmailLogin" name="inputEmailLogin" class="form-control" placeholder="Email" required autofocus="" type="email" maxlength="45">
 						</div>
 
 						<div class="form-label-group">
 							<label for="inputSenhaLogin">Senha</label>
-							<input id="inputSenhaLogin" name="inputSenhaLogin" class="form-control" placeholder="Senha" required="" type="password" value="" maxlength="45">
+							<input id="inputSenhaLogin" name="inputSenhaLogin" class="form-control" placeholder="Senha" required type="password" value="" maxlength="45">
 						</div>
 
 						<div class="row d-flex justify-content-center p-3">
@@ -56,22 +56,22 @@
 
 							<div class="form-label-group col-md-6">
 								<label for="inputNomeCadastro">Nome</label>
-								<input id="inputNomeCadastro" name="inputNomeCadastro" class="form-control" placeholder="Nome" required="" type="text" maxlength="45">
+								<input id="inputNomeCadastro" name="inputNomeCadastro" class="form-control" placeholder="Nome" required type="text" maxlength="45">
 							</div>
 
 							<div class="form-label-group col-md-6">
 								<label for="inputTelefoneCadastro">Telefone</label>
-								<input id="inputTelefoneCadastro" name="inputTelefoneCadastro" class="form-control" placeholder="Telefone" required="" type="number">
+								<input id="inputTelefoneCadastro" name="inputTelefoneCadastro" class="form-control" placeholder="Telefone" required type="number">
 							</div>
 
 							<div class="form-label-group col-md-12">
 								<label for="inputEmailCadastro">Email</label>
-								<input id="inputEmailCadastro" name="inputEmailCadastro" class="form-control" placeholder="Email" required="" type="email" maxlength="45">
+								<input id="inputEmailCadastro" name="inputEmailCadastro" class="form-control" placeholder="Email" required type="email" maxlength="45">
 							</div>
 
 							<div class="form-label-group col-md-12">
 								<label for="inputSenhaCadastro">Senha</label>
-								<input id="inputSenhaCadastro" name="inputSenhaCadastro" class="form-control" placeholder="Senha" required="" type="password" value="" maxlength="45">
+								<input id="inputSenhaCadastro" name="inputSenhaCadastro" class="form-control" placeholder="Senha" required type="password" value="" maxlength="45">
 							</div>
 
 						</div>

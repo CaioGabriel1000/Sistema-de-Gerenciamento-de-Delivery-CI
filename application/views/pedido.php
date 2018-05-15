@@ -46,7 +46,7 @@
 						<div class="row">
 							<div class="form-label-group col-md-12">
 								<label for="observacoesRetirar">Observações sobre o pedido</label>
-								<input id="observacoesRetirar" name="observacoesRetirar" class="form-control" placeholder="Observações" required="" autofocus="" type="text" maxlength="45">
+								<input id="observacoesRetirar" name="observacoesRetirar" class="form-control" placeholder="Observações" autofocus="" type="text" maxlength="45">
 							</div>
 
 							<div class="form-label-group col-md-12">
@@ -117,12 +117,12 @@
 
 							<div class="form-label-group col-md-6">
 								<label for="complemento">Complemento</label>
-								<input id="complemento" name="complemento" class="form-control" placeholder="Complemento" required="" type="text" maxlength="45">
+								<input id="complemento" name="complemento" class="form-control" placeholder="Complemento" type="text" maxlength="45">
 							</div>
 
 							<div class="form-label-group col-md-6">
 								<label for="observacoesEntrega">Observações sobre o pedido</label>
-								<input id="observacoesEntrega" name="observacoesEntrega" class="form-control" placeholder="Observações" required="" autofocus="" type="text">
+								<input id="observacoesEntrega" name="observacoesEntrega" class="form-control" placeholder="Observações" autofocus="" type="text">
 							</div>
 
 							<div class="form-label-group col-md-6">
