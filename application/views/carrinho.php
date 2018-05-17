@@ -13,7 +13,7 @@
 
 <!-- Carrinho -->
 <div class="row justify-content-md-center">
-	<div class="col-md-8 col-xs-10 order-md-2 mb-4">
+	<div class="col-md-6 col-xs-10 order-md-2 mb-4">
 
 		<!-- Lista de produtos -->
 		<ul class="list-group mb-3">

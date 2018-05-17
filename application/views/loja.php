@@ -3,7 +3,7 @@
 <!-- Div que contém todos os elementos da página -->
 <div class="container">
 
-<!-- Barra de pesquisa --> 
+<!--
 <nav class="navbar stick-top navbar-expand">
 
 	<div class="input-group mb-3">
@@ -15,7 +15,7 @@
 		</div>
 	</div>
 </nav>
-<!-- Fim da barra de pesquisa -->
+-->
 
 <!-- Produtos -->
 <div class="row ">

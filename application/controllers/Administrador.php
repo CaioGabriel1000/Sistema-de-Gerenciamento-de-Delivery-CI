@@ -18,8 +18,8 @@ class Administrador extends CI_Controller{
 			$this->load->view('gerenciamento/entrar.php');
 
 		} else {
-
-			$this->load->view('gerenciamento/home.php');
+			$dados['title'] = "SGD - Gerenciamento Home";
+			$this->load->view('gerenciamento/home.php', $dados);
 
 		}
 	}
@@ -56,7 +56,7 @@ class Administrador extends CI_Controller{
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		$this->index();
+		redirect('/');
 	}
 	
 }

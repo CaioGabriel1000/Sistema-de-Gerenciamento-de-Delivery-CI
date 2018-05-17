@@ -25,3 +25,8 @@
 		$preco = strrev($preco);
 		return ($negativo ? "-" : "") . $preco;
 	}
+
+	function formatarData($entrada){
+		$data = date('d/m/Y H:i', strtotime($entrada));
+		return $data;
+	}

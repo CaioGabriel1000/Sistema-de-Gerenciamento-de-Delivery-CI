@@ -12,7 +12,7 @@ class Pedido extends CI_Controller {
 
 		// Variável que contem o nome do entregador padrão
 		if (!isset($_SESSION['entregadorPadrao'])) {
-			$_SESSION['entregadorPadrao'] = 'Motoboy 1';
+			$_SESSION['entregadorPadrao'] = 'Motoboy';
 		}
 
 	}

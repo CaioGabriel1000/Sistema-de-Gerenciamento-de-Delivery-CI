@@ -5,7 +5,7 @@
 
 <section class="text-center">
 	<div class="container">
-		<img src="<?php echo base_url('application/views/assets/img/logosfundo.png') ?>" class="img-fluid w-20 p-3" width="20%"> 
+		<img src="<?php echo base_url('application/views/assets/img/logosfundo.png') ?>" class="rounded mx-auto d-block w-25 p-3"> 
 		<p class="lead text-muted text-justify">O Sistema de Gerenciamento de Delivery está sendo desenvolvido com o objetivo de oferecer as empresas do ramo de delivery um sistema eficiente, amigável e economicamente atrativo. Por isso o SGD é open source, disponibilizado gratuitamente no <a href="https://github.com/CaioGabriel1000/Sistema-de-Gerenciamento-de-Delivery">github</a>, para que pequenas empresas possam ser informatizadas, tendo apenas um custo inicial de implantação.
 		<p class="lead text-muted text-justify">Este exemplo de utilização do sistema demonstra uma loja de delivery de fast food, contando com as seguintes funções:</p>
 	</div>

@@ -14,9 +14,24 @@ body {
 .rodape-item i {
 	color: green; !important
 }
+a {
+	text-decoration: none; !important
+	color: green; !important
+}
 a:hover {
-	text-decoration: none;
+	text-decoration: none; !important
 }
 .album i{
 	color: green;
+}
+/*
+ * Página do Cliente
+ */
+.only-bottom-margin {
+	margin-top: 0px;
+}
+
+.activity-mini {
+	padding-right: 15px;
+	float: left;
 }

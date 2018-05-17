@@ -3,30 +3,44 @@
 <!-- Div que contém todos os elementos da página -->
 <div class="container">
 
-<section class="text-center">
-	<div class="container">
-		<i class="fas fa-user fa-5x p-3"></i>
-		<p><?php echo 'idCliente: ' . $_SESSION['idCliente']; ?></p>
-		<p><?php echo 'nome: ' . $_SESSION['nome']; ?></p>
-		<p><?php echo 'telefone: ' . $_SESSION['telefone']; ?></p>
-		<p><?php echo 'email: ' . $_SESSION['email']; ?></p>
-	</div>
-
-	<form class="form-signin" id="form-logout" name="form-logout" role="form" method="post" action="<?php echo base_url('Cliente/logout'); ?>">
-		<fieldset>
-			<div class="row d-flex justify-content-center p-3">
-				<div class="col-md-4">
-					<button id="btnDeslogar" name="btnDeslogar" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="Register" name="register">Logout</button>
+<div class="row d-flex justify-content-center">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-body">
+			  <div class="row">
+			  	<div class="col-md-12 lead p-3">Minha Conta<hr></div>
+			  </div>
+			  <div class="row">
+				<div class="col-md-4 text-center">
+				  <i class="fas fa-user fa-5x p-3"></i>
 				</div>
+				<div class="col-md-8">
+				  <div class="row">
+					<div class="col-md-12">
+					  <h1 class="only-bottom-margin"><?php echo $_SESSION['nome']; ?></h1>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col-md-6">
+					  <span class="text-muted">Email: </span> <?php echo $_SESSION['email']; ?> <br>
+					  <span class="text-muted">Telefone: </span> <?php echo $_SESSION['telefone']; ?> <br> <br>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="col-md-12">
+					<form class="form-signin" id="form-logout" name="form-logout" role="form" method="post" action="<?php echo base_url('Cliente/logout'); ?>">
+						<fieldset>
+							<hr><button class="btn btn-default pull-right" id="btnDeslogar" name="btnDeslogar" type="submit" value="Register" name="register"><i class="fas fa-times"></i> Sair</button>
+						</fieldset>
+					</form>
+				</div>
+			  </div>
 			</div>
-		</fieldset>
-	</form>
-
-	<div class="d-flex justify-content-center">
-		<p class="small">SGD - 2018</p>
+		</div>
 	</div>
-
-</section>
+</div>
 
 <!-- Carregando o footer -->
 <?php $this->load->view('components/footer'); ?>
