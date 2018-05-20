@@ -1,5 +1,8 @@
 <body>
 
+<!-- Carregando o nav -->
+<?php $this->load->view('components/nav'); ?>
+
 <!-- Div que contém todos os elementos da página -->
 <div class="container">
 
@@ -22,7 +25,7 @@
 			// Caso o carrinho esteja vazio a mensagem é exibida
 			if (!isset($carrinho['produtos'])) {
 				echo '
-					<li class="list-group-item d-flex justify-content-between lh-condensed">
+					<li class="box-shadow list-group-item d-flex justify-content-between lh-condensed">
 						<div>
 						<h6 class="my-0">Carrinho vazio</h6>
 						</div>
@@ -35,7 +38,7 @@
 				// caso existam produtos no carrinho, os dados que vieram do controller são exibidos
 				foreach ($carrinho['produtos'] as $produtos => $p) {
 					echo '
-						<li class="list-group-item d-flex justify-content-between lh-condensed">
+						<li class="box-shadow list-group-item d-flex justify-content-between lh-condensed">
 							<div>
 								<h6 class="my-0">' . $p['quantidade'] . ' - ' . $p['nome'] . ' </h6>
 								<small class="text-muted">Descrição</small>
@@ -55,16 +58,17 @@
 
 				echo '<!-- Total e botão de finalizar pedido -->';
 				echo '
-					<li class="list-group-item d-flex justify-content-between">
+					<li class="box-shadow list-group-item d-flex justify-content-between">
 						<span>Total (R$)</span>
 						<strong>R$ '. formatar_preco($valorTotal) .'</strong>
 					</li>
 					';
 				echo '
-					<li class="list-group-item">
+					<li class="box-shadow list-group-item">
 						<a href="'. base_url('/pedido') .'">
-							<button type="button" class="btn btn-success float-right">
-								<i class="fas fa-check"></i> Finalizar Pedido
+							<button type="button" class="btn float-right">
+								<i class="fas fa-check"></i> 
+								<label> Finalizar Pedido </label>
 							</button>
 						</a>
 					</li>
@@ -80,9 +84,6 @@
 <br>
 <br>
 <br>
-
-<!-- Carregando o footer -->
-<?php $this->load->view('components/footer'); ?>
 
 <script type="text/javascript">
 

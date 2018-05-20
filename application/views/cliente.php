@@ -1,5 +1,8 @@
 <body>
 
+<!-- Carregando o nav -->
+<?php $this->load->view('components/nav'); ?>
+
 <!-- Div que contém todos os elementos da página -->
 <div class="container">
 
@@ -32,7 +35,10 @@
 				<div class="col-md-12">
 					<form class="form-signin" id="form-logout" name="form-logout" role="form" method="post" action="<?php echo base_url('Cliente/logout'); ?>">
 						<fieldset>
-							<hr><button class="btn btn-default pull-right" id="btnDeslogar" name="btnDeslogar" type="submit" value="Register" name="register"><i class="fas fa-times"></i> Sair</button>
+							<hr>
+							<button class="btn pull-right" id="btnDeslogar" name="btnDeslogar" type="submit" value="Register" name="register">
+								<i class="fas fa-times"></i> <label> Sair </label>
+							</button>
 						</fieldset>
 					</form>
 				</div>
@@ -41,9 +47,6 @@
 		</div>
 	</div>
 </div>
-
-<!-- Carregando o footer -->
-<?php $this->load->view('components/footer'); ?>
 
 <!-- fechando o container, body e a tag html aberta no arquivo head.php -->
 </div>

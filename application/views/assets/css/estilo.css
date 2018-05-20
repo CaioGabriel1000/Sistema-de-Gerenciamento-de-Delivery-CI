@@ -1,37 +1,36 @@
-/*Mantendo a mesma cor da logo em todo o site.*/
-body {
+.home-item {
+	opacity: 0.75; !important
+	background-color: #DAD0F2; !important
+	text-decoration: none; !important
+}
+.box-shadow {
 	background-color: #DAD0F2; !important
 }
-/* Rodape */
-#rodape {
-	background: #fff;
-    border: solid 1px #239636;
-    display: flex;
-}
-.rodape-item a {
-	color: green; !important
-}
-.rodape-item i {
-	color: green; !important
+nav{
+	background: #DAD0F2; !important
+	border: solid 2px #563d7c; !important
 }
 a {
+	color: black; !important
 	text-decoration: none; !important
-	color: green; !important
+	opacity: 1; !important
+}
+i {
+	color: black; !important
+	text-decoration: none; !important
+	opacity: 1; !important
 }
 a:hover {
 	text-decoration: none; !important
 }
-.album i{
-	color: green;
+i:hover {
+	text-decoration: none; !important
 }
-/*
- * Página do Cliente
- */
-.only-bottom-margin {
-	margin-top: 0px;
+button {
+    background-color: #563d7c; !important
+    color: white;
 }
-
-.activity-mini {
-	padding-right: 15px;
-	float: left;
+button * {
+    color: white;
+    display: inline;
 }

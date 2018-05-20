@@ -1,5 +1,8 @@
 <body>
 
+<!-- Carregando o nav -->
+<?php $this->load->view('components/nav'); ?>
+
 <!-- Div que contém todos os elementos da página -->
 <div class="container">
 
@@ -30,7 +33,9 @@
 						</div>
 
 						<div class="row d-flex justify-content-center p-3">
-							<button id="btnLogar" name="btnLogar" class="btn btn-lg btn-success btn-block col-md-12" type="submit" value="Register" name="register">Entrar</button>
+							<button id="btnLogar" name="btnLogar" class="btn btn-lg btn-block col-md-12" type="submit" value="Register" name="register">
+								<label> Entrar </label>
+							</button>
 						</div>
 					<fieldset>
 				</form>
@@ -77,7 +82,9 @@
 						</div>
 
 						<div class="row d-flex justify-content-center p-3">
-							<button id="btnCadastrar" name="btnCadastrar" class="btn btn-lg btn-success btn-block col-md-12" type="submit" value="Register" name="register">Cadastrar</button>
+							<button id="btnCadastrar" name="btnCadastrar" class="btn btn-lg btn-block col-md-12" type="submit" value="Register" name="register">
+								<label> Cadastrar </label>
+							</button>
 						</div>
 					</fieldset>
 				</form>
@@ -102,9 +109,6 @@
 <br>
 <br>
 <br>
-
-<!-- Carregando o footer -->
-<?php $this->load->view('components/footer'); ?>
 
 <script type="text/javascript">
 
@@ -136,7 +140,6 @@ $(document).ready(function(){
 			});
 			// Limpando o formulário
 			document.getElementById("#form-login").reset();
-			return false;
 		}
 	});
 
@@ -170,7 +173,6 @@ $(document).ready(function(){
 			});
 			// Limpando o formulário
 			document.getElementById("#form-cadastro").reset();
-			return false;
 		}
 	});
 });

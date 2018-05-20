@@ -1,5 +1,8 @@
 <body>
 
+<!-- Carregando o nav -->
+<?php $this->load->view('components/nav'); ?>
+
 <!-- Div que contém todos os elementos da página -->
 <div class="container">
 
@@ -12,27 +15,30 @@
 	</div>
 </div>
 
-<hr>
 
-<div class="row d-flex justify-content-center mb-3">
-	<small>Forma de entrega: </small>
-</div>
-
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center p-3">
 
 
 	<ul class="nav nav-pills" id="pills-tab" role="tablist">
 		<li class="nav-item">
-			<a class="nav-link active" id="form-retirar-tab" data-toggle="pill" href="#form-retirar" role="tab" aria-controls="form-retirar" aria-selected="true">Retirar no local </a>
+			<a class="nav-link disabled">
+				Forma de entrega:
+			</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" id="form-entregar-tab" data-toggle="pill" href="#form-entregar" role="tab" aria-controls="form-entregar" aria-selected="false">Entregar em domicílio </a>
+			<a class="nav-link active" id="form-retirar-tab" data-toggle="pill" href="#form-retirar" role="tab" aria-controls="form-retirar" aria-selected="true">
+				Retirar no local 
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="form-entregar-tab" data-toggle="pill" href="#form-entregar" role="tab" aria-controls="form-entregar" aria-selected="false">
+				Entregar em domicílio 
+			</a>
 		</li>
 	</ul>
 
 </div>
 
-<hr>
 
 <!-- Formulários -->
 <div class="tab-content" id="pills-tabContent">
@@ -60,7 +66,9 @@
 							</div>
 
 							<div class="col-md-12 p-3">
-								<button id="tipoEntrega" name="tipoEntrega" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="RETIRAR">Finalizar pedido</button>
+								<button id="tipoEntrega" name="tipoEntrega" class="btn btn-lg btn-block col-md-12" type="submit" value="RETIRAR">
+									<label> Finalizar pedido </label>
+								</button>
 							</div>
 						</div>
 					<fieldset>
@@ -139,7 +147,9 @@
 							</div>
 
 							<div class="col-md-12 p-3">
-								<button id="tipoEntrega" name="tipoEntrega" class="btn btn-lg btn-primary btn-block col-md-12" type="submit" value="ENTREGAR">Finalizar pedido</button>
+								<button id="tipoEntrega" name="tipoEntrega" class="btn btn-lg btn-block col-md-12" type="submit" value="ENTREGAR">
+									<label> Finalizar pedido </label>
+								</button>
 							</div>
 
 						</div>
@@ -153,10 +163,6 @@
 <br>
 <br>
 <br>
-
-<!-- Carregando o footer -->
-<?php $this->load->view('components/footer'); ?>
-
 
 <!-- fechando o container, body e a tag html aberta no arquivo head.php -->
 </div>

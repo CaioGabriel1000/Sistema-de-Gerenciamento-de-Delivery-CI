@@ -4,10 +4,10 @@
 <div class="container">
 
 <section class="text-center">
+
+	<!-- Logo -->
 	<div class="container">
-		<img src="<?php echo base_url('application/views/assets/img/logosfundo.png') ?>" class="rounded mx-auto d-block w-25 p-3"> 
-		<p class="lead text-muted text-justify">O Sistema de Gerenciamento de Delivery está sendo desenvolvido com o objetivo de oferecer as empresas do ramo de delivery um sistema eficiente, amigável e economicamente atrativo. Por isso o SGD é open source, disponibilizado gratuitamente no <a href="https://github.com/CaioGabriel1000/Sistema-de-Gerenciamento-de-Delivery">github</a>, para que pequenas empresas possam ser informatizadas, tendo apenas um custo inicial de implantação.
-		<p class="lead text-muted text-justify">Este exemplo de utilização do sistema demonstra uma loja de delivery de fast food, contando com as seguintes funções:</p>
+		<img src="<?php echo base_url('application/views/assets/img/logosfundo.png') ?>" class="rounded mx-auto d-block p-3" width="20%"> 
 	</div>
 
 	<!-- Conjunto de Ícones com texto -->
@@ -17,7 +17,7 @@
 				<!-- Icone mais texto explicativo -->
 				<div class="col-md-3">
 					<a href="<?=base_url('/loja')?>">
-						<div class="card mb-4 box-shadow">
+						<div class="card mb-4 box-shadow home-item">
 							<div class="d-flex justify-content-center">
 								<i class="fas fa-home fa-5x p-3"></i>
 							</div>
@@ -31,7 +31,7 @@
 				<!-- Icone mais texto explicativo -->
 				<div class="col-md-3">
 					<a href="<?=base_url('/carrinho')?>">
-						<div class="card mb-4 box-shadow">
+						<div class="card mb-4 box-shadow home-item">
 							<div class="d-flex justify-content-center">
 								<i class="fas fa-shopping-cart fa-5x p-3"></i>
 							</div>
@@ -45,7 +45,7 @@
 				<!-- Icone mais texto explicativo -->
 				<div class="col-md-3">
 					<a href="<?=base_url('/pedido_cliente')?>">
-						<div class="card mb-4 box-shadow">
+						<div class="card mb-4 box-shadow home-item">
 							<div class="d-flex justify-content-center">
 								<i class="fas fa-clipboard-list fa-5x p-3"></i>
 							</div>
@@ -59,7 +59,7 @@
 				<!-- Icone mais texto explicativo -->
 				<div class="col-md-3">
 					<a href="<?=base_url('/cliente')?>">
-						<div class="card mb-4 box-shadow">
+						<div class="card mb-4 box-shadow home-item">
 							<div class="d-flex justify-content-center">
 								<i class="fas fa-user fa-5x p-3"></i>
 							</div>
@@ -74,16 +74,15 @@
 		</div>
 	</div>
 
-	<div class="d-flex justify-content-center">
-		<p class="small">SGD - 2018</p>
-	</div>
-
 </section>
 
-<!-- Carregando o footer -->
-<?php $this->load->view('components/footer'); ?>
+<!-- Rodapé -->
+<footer class="footer">
+	<div class="container d-flex justify-content-center">
+		<span><p class="small">SGD - 2018</p></span>
+	</div>
+</footer>
 
-<!-- fechando o container, body e a tag html aberta no arquivo head.php -->
 </div>
 
 </body>
