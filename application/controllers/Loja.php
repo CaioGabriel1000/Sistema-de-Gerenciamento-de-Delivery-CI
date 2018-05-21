@@ -2,6 +2,8 @@
  
 class Loja extends CI_Controller {
 
+	protected $dados = array();
+
 	/*
 	 * Construtor adiciona o acesso aos produtos, funções de ajuda
 	 * e caso o carrinho da sessão ainda não exista ele é criado

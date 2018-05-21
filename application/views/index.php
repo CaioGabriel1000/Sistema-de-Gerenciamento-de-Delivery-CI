@@ -79,7 +79,7 @@
 <!-- Rodapé -->
 <footer class="footer">
 	<div class="container d-flex justify-content-center">
-		<span><p class="small">SGD - 2018</p></span>
+		<span><p class="small"><a href="<?php echo base_url('/gerenciamento') ?>">Entrar no gerenciamento</a> - SGD - 2018</p></span>
 	</div>
 </footer>
 

@@ -2,6 +2,8 @@
  
 class Cliente extends CI_Controller {
 
+	protected $dados = array();
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -26,6 +28,36 @@ class Cliente extends CI_Controller {
 			$this->load->view('cliente.php');
 
 		}
+	}
+
+	/*
+	 * Página de manutenção do cliente
+	 */
+	public function manutencao()
+	{
+		if(!isset($_SESSION['idAdministrador'])) {
+			$dados['title'] = "SGD - Gerenciamento Login";
+			$this->load->view('components/head.php', $dados);
+			$this->load->view('gerenciamento/entrar.php');
+
+		} else {
+			$dados['title'] = "SGD - Cliente Manutenção";
+			$this->load->view('components/head_gerenciamento.php', $dados);
+
+			$data['clientes'] = $this->Cliente_model->get_all_cliente();
+			$this->load->view('gerenciamento/cliente_manutencao.php', $data);
+
+		}
+	}
+
+	public function getCliente()
+	{
+		$idCliente = $this->input->post('idCliente');
+
+		$cliente = $this->Cliente_model->get_cliente($idCliente);
+
+		echo json_encode($cliente);
+
 	}
 
 	/*
@@ -112,24 +144,26 @@ class Cliente extends CI_Controller {
 	/*
 	 * Editando cliente
 	 */
-	public function edit($idCliente)
+	public function edit()
 	{   
+
+		$idCliente = $this->input->post('idCliente');
 
 		$data['cliente'] = $this->Cliente_model->get_cliente($idCliente);
 		
 		if(isset($data['cliente']['idCliente'])) {
 			$params = array(
-				'nome' => $this->input->post('nome'),
-				'telefone' => $this->input->post('telefone'),
-				'email' => $this->input->post('email'),
-				'senha' => $this->input->post('senha'),
 				'status' => $this->input->post('status'),
 			);
 
-			$this->Cliente_model->update_cliente($idCliente,$params);            
+			$this->Cliente_model->update_cliente($idCliente,$params); 
+			$mensagem = 'Cliente alterado com sucesso!';
+			echo json_encode($mensagem);           
 			return true;
 		} else {
-			return false;
+			$mensagem = 'Selecione um cliente!';
+			echo json_encode($mensagem);  
+			return true;
 		}
 	} 
 	

@@ -10,6 +10,9 @@ class Pedido_model extends CI_Model
         parent::__construct();
     }
 
+  /*
+   * Selecionando todos os dados relevantes sobre um pedido
+   */
     function get_pedido_informacoes($idPedido)
     {
 
@@ -34,13 +37,16 @@ class Pedido_model extends CI_Model
               ende.numero numero,
               ende.complemento complemento,
               b.nome bairro,
-              c.nome cidade
+              c.nome cidade,
+              cli.nome cliente
             FROM
               pedido ped
             INNER JOIN
               pedido_produto pp ON pp.pedido_idPedido = ped.idPedido
             INNER JOIN
               produto pro ON pro.idProduto = pp.produto_idProduto
+            INNER JOIN
+              cliente cli ON cli.idCliente = ped.cliente_idCliente
             LEFT JOIN
               entrega ent ON ent.idEntrega = ped.entrega_idEntrega
             LEFT JOIN
@@ -62,7 +68,29 @@ class Pedido_model extends CI_Model
      */
     function get_pedido($idPedido)
     {
-        return $this->db->get_where('pedido',array('idPedido'=>$idPedido))->row_array();
+        $this->db->join('cliente', 'cliente.idCliente = pedido.cliente_idCliente');
+        $this->db->order_by('idPedido', 'desc');
+        return $this->db->get_where('pedido',array('idPedido'=>$idPedido))->result_array();
+    }
+
+    /*
+     * Selecionando pedido por status
+     */
+    function get_pedido_status($status)
+    {
+        $this->db->select('pedido.idPedido');
+        $this->db->select('pedido.valor');
+        $this->db->select('pedido.formaPagamento');
+        $this->db->select('pedido.observacoes');
+        $this->db->select('pedido.status');
+        $this->db->select('pedido.criacao');
+        $this->db->select('pedido.atualizacao');
+        $this->db->select('cliente.idCliente');
+        $this->db->select('cliente.nome');
+        
+        $this->db->join('cliente', 'cliente.idCliente = pedido.cliente_idCliente');
+        $this->db->order_by('idPedido', 'asc');
+        return $this->db->get_where('pedido',array('pedido.status'=>$status))->result_array();
     }
         
     /*
@@ -70,7 +98,8 @@ class Pedido_model extends CI_Model
      */
     function get_all_pedido()
     {
-        $this->db->order_by('idPedido', 'desc');
+        $this->db->join('cliente', 'cliente.idCliente = pedido.cliente_idCliente');
+        $this->db->order_by('idPedido', 'asc');
         return $this->db->get('pedido')->result_array();
     }
 

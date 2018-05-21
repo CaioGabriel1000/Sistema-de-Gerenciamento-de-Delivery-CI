@@ -1,7 +1,10 @@
 <?php
  
 class Pedido extends CI_Controller {
-	function __construct()
+
+	protected $dados = array();
+
+	public function __construct()
 	{
 		parent::__construct();
 		$this->load->helper('funcoes_helper');
@@ -21,17 +24,17 @@ class Pedido extends CI_Controller {
 	 * Pagina de finalização do pedido
 	 * caso o cliente não esteja logado ele é direcionado para o login do cliente
 	 */
-	function index() 
+	public function index() 
 	{
 		if(isset($_SESSION['idCliente'])) {
 
-		$dados['title'] = "SGD - Pedido";
-		$this->load->view('components/head.php', $dados);
+			$dados['title'] = "SGD - Pedido";
+			$this->load->view('components/head.php', $dados);
 
-		$dados['endereco']['cidades'] = $this->Endereco_model->get_all_cidade();
-		$dados['endereco']['bairros'] = $this->Endereco_model->get_all_bairro();		
+			$dados['endereco']['cidades'] = $this->Endereco_model->get_all_cidade();
+			$dados['endereco']['bairros'] = $this->Endereco_model->get_all_bairro();		
 
-		$this->load->view('pedido.php', $dados);
+			$this->load->view('pedido.php', $dados);
 
 		} else {
 
@@ -44,7 +47,7 @@ class Pedido extends CI_Controller {
 	 * Pagina com os pedidos realizados pelo cliente
 	 * caso o cliente não esteja logado ele é direcionado para o login do cliente
 	 */
-	function cliente() 
+	public function cliente() 
 	{
 		if(isset($_SESSION['idCliente'])) {
 
@@ -70,7 +73,7 @@ class Pedido extends CI_Controller {
 	 * caso o pedido seja diferente de entrega, ou seja, retirar no local, o endereço, entrega e forma de pagamento do pedido ficam nulos
 	 * após o cadastro do pedido o cliente é direcionado para o cliente_pedidos
 	 */
-	function add()
+	public function add()
 	{	
 		$tipoEntrega = $this->input->post('tipoEntrega');
 
@@ -100,7 +103,7 @@ class Pedido extends CI_Controller {
 				'valor' => $_SESSION['valorTotal'],
 				'formaPagamento' => $this->input->post('formaPagamento'),
 				'observacoes' => $this->input->post('observacoesEntrega'),
-				'status' => 'ativo',
+				'status' => 'aberto',
 				'cliente_idCliente' => $_SESSION['idCliente'],
 				'entrega_idEntrega' => $entrega_id,
 			);
@@ -141,70 +144,21 @@ class Pedido extends CI_Controller {
 			redirect('/pedido_cliente');
 
 		}
-	}  
-
-	/*
-	 * Editando pedido
-	 */
-	function edit($idPedido)
-	{   
-		$data['pedido'] = $this->Pedido_model->get_pedido($idPedido);
-		
-		if(isset($data['pedido']['idPedido']))
-		{
-			if(isset($_POST) && count($_POST) > 0)     
-			{   
-				$params = array(
-					'cliente_idCliente' => $this->input->post('cliente_idCliente'),
-					'entrega_idEntrega' => $this->input->post('entrega_idEntrega'),
-					'valor' => $this->input->post('valor'),
-					'formaPagamento' => $this->input->post('formaPagamento'),
-					'observacoes' => $this->input->post('observacoes'),
-					'status' => $this->input->post('status'),
-					'criacao' => $this->input->post('criacao'),
-					'atualizacao' => $this->input->post('atualizacao'),
-				);
-
-				$this->Pedido_model->update_pedido($idPedido,$params);            
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-			return false;
 	} 
 
 	/*
-	 * Deletando pedido
-	 */
-	function remove($idPedido)
-	{
-		$pedido = $this->Pedido_model->get_pedido($idPedido);
-
-		if(isset($pedido['idPedido']))
-		{
-			$this->Pedido_model->delete_pedido($idPedido);
-			return true;
-		}
-		else
-			return false;
-	}
-
-	/*
-	 * Pagina com todos os pedidos exibidos no gerenciamento
+	 * Pagina com todos os pedidos abertos exibidos no gerenciamento
 	 * caso o admin não esteja logado ele é direcionado para o login do admin
 	 */
-	function gerenciamento() 
+	public function gerenciamento($status) 
 	{
+
 		if(isset($_SESSION['idAdministrador'])) {
 
 			$dados['title'] = "SGD - Pedidos";
-			$this->load->view('components/head.php', $dados);
+			$this->load->view('components/head_gerenciamento.php', $dados);
 
-			$pedidos = $this->Pedido_model->get_all_pedido();
+			$pedidos = $this->Pedido_model->get_pedido_status($status);
 
 			$dados['pedidos'] = $pedidos;
 			
@@ -216,5 +170,36 @@ class Pedido extends CI_Controller {
 
 		}
 	}
+
+	/*
+	 * Editando pedido
+	 */
+	public function finalizar()
+	{   
+		$idPedido = $this->input->post('idPedido');
+
+		if(isset($_SESSION['idAdministrador'])) {
+		
+			if($idPedido)
+			{
+				$params = array(
+					'status' => 'finalizado',
+				);
+
+				$this->Pedido_model->update_pedido($idPedido,$params);
+
+				$mensagem = 'Pedido finalizado!';        
+				echo json_encode($mensagem);
+			}
+			else
+				$mensagem = 'Pedido não encontrado!';        
+				echo json_encode($mensagem);
+
+		} else {
+
+			redirect('/gerenciamento');
+
+		}
+	} 
 	
 }

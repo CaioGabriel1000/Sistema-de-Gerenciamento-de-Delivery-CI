@@ -1,4 +1,4 @@
-<nav class="navbar static-top navbar-expand justify-content-between">
+<nav id="nav" class="navbar static-top navbar-expand justify-content-between">
 	<div class="col-md-3 rodape-item">
 		<div class="row d-flex justify-content-center">
 			<a href="<?=base_url('/loja')?>">

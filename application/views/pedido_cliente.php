@@ -28,7 +28,7 @@
 
 				echo '<div class="col-xs-12 col-md-8">';
 				echo '<div class="my-3 p-3 box-shadow rounded">';
-				echo '<h3>. Pedido: '.$p['idPedido'].' - Status: '.$p['status'].' - Valor: R$ '.formatar_preco($p['valor']).'</h3>';
+				echo '<h3> Pedido: '.$p['idPedido'].' - Status: '.$p['status'].' - Valor: R$ '.formatar_preco($p['valor']).'</h3>';
 				echo '<hr>';
 				echo '<h6> Atualizado em: '. (is_null($p['atualizacao']) ? formatarData($p['criacao']) : formatarData($p['atualizacao'])). '</h6>';
 				echo '<p>Produtos:</p>';

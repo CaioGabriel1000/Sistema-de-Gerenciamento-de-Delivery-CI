@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pagina extends CI_Controller {
 
-	private $dados = array();
+	protected $dados = array();
 
 	// Página Inicial
 	public function index()

@@ -12,7 +12,7 @@
 						<div class="d-block mx-auto">
 							<i class="fas fa-sign-in-alt fa-5x"></i>
 						</div>
-						<h2>Gerenciamento</h2>
+						<h2>Entrar no SGD</h2>
 					</div>
 
 					<div class="form-label-group">
@@ -26,7 +26,9 @@
 					</div>
 
 					<div class="row d-flex justify-content-center p-3">
-						<button id="btnLogar" name="btnLogar" class="btn btn-lg btn-success btn-block col-md-12" type="submit" value="Register" name="register">Entrar</button>
+						<button id="btnLogar" name="btnLogar" class="btn btn-lg btn-block col-md-12" type="submit" value="Register" name="register">
+							<label> Entrar </label>
+						</button>
 					</div>
 				<fieldset>
 			</form>
@@ -36,19 +38,6 @@
 <br>
 <br>
 <br>
-
-<!-- Bootstrap JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script 
-src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
-integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
-crossorigin="anonymous"></script>
-
-<script 
-src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" 
-integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" 
-crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 
@@ -80,7 +69,6 @@ $(document).ready(function(){
 			});
 			// Limpando o formulário
 			document.getElementById("#form-login").reset();
-			return false;
 		}
 	});
 });

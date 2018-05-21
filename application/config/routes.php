@@ -73,11 +73,23 @@ $route['pedido_cliente'] = 'Pedido/cliente';
 // Rota do pedido.
 $route['pedido'] = 'Pedido/index';
 
-// Rota do gerenciamento
+// Rota do gerenciamento (abre o login, caso o admin esteja deslogado)
 $route['gerenciamento'] = 'Administrador/index';
 
-// Rota com os pedidos do gerenciamento
-$route['pedido_gerenciamento'] = 'Pedido/gerenciamento';
+// Rota com os pedidos do gerenciamento (abertos)
+$route['pedido_gerenciamento_abertos'] = 'Pedido/gerenciamento/aberto';
+
+// Rota com os pedidos do gerenciamento (finalizados)
+$route['pedido_gerenciamento_finalizados'] = 'Pedido/gerenciamento/finalizado';
+
+// Rota com os pedidos do gerenciamento (finalizados)
+$route['produto_gerenciamento_cadastro'] = 'Produto/index';
+
+// Rota com os pedidos do gerenciamento (finalizados)
+$route['produto_gerenciamento_manutencao'] = 'Produto/manutencao';
+
+// Rota com os pedidos do gerenciamento (finalizados)
+$route['cliente_gerenciamento_manutencao'] = 'Cliente/manutencao';
 
 // Rota do erro 404.
 $route['404_override'] = '';

@@ -1,6 +1,9 @@
 <?php
  
 class Administrador extends CI_Controller{
+
+	protected $dados = array();
+
 	function __construct()
 	{
 		parent::__construct();
@@ -8,7 +11,7 @@ class Administrador extends CI_Controller{
 	} 
 
 	/*
-	 * Página de login e cadastro do admin
+	 * Página de login do admin
 	 */
 	public function index()
 	{
@@ -19,7 +22,8 @@ class Administrador extends CI_Controller{
 
 		} else {
 			$dados['title'] = "SGD - Gerenciamento Home";
-			$this->load->view('gerenciamento/home.php', $dados);
+			$this->load->view('components/head_gerenciamento.php', $dados);
+			$this->load->view('gerenciamento/home.php');
 
 		}
 	}
