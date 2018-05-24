@@ -21,9 +21,12 @@
 
 			echo '<div class="col-xs-12 col-md-8">';
 			echo '<div class="my-3 p-3 box-shadow rounded">';
-			echo '<h3 class="p-3"> Pedido: '.$p['idPedido'].' - Cliente: '.$p['nome'].' - Valor: R$ '.formatar_preco($p['valor']).'</h3>';
+			echo '<h3 class="p-3"> Pedido: '.$p['idPedido'].' - Valor: R$ '.formatar_preco($p['valor']).'</h3>';
 			echo '<hr>';
 			echo '<h6 class="p-1"> Atualizado em: '. (is_null($p['atualizacao']) ? formatarData($p['criacao']) : formatarData($p['atualizacao'])). '</h6>';
+			echo '<p class="p-1"><b>'.$p['nome'].'</b> - Telefone: '.formatarTelefone($p['telefone']).'</p>';
+			echo is_null($p['observacoes']) ? '' : '<p class="p-1"> Observação: '.$p['observacoes'].'</p>';
+			echo '<hr>';
 			echo '<p class="p-1">Produtos:</p>';
 			echo '<ul class="list-group col-md-12 p-3">';
 

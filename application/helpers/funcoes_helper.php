@@ -30,3 +30,15 @@
 		$data = date('d/m/Y H:i', strtotime($entrada));
 		return $data;
 	}
+
+	function formatarTelefone($numero){
+		if(strlen($numero) == 10){
+			$novo = substr_replace($numero, '(', 0, 0);
+			$novo = substr_replace($novo, '9', 3, 0);
+			$novo = substr_replace($novo, ')', 3, 0);
+		}else{
+			$novo = substr_replace($numero, '(', 0, 0);
+			$novo = substr_replace($novo, ')', 3, 0);
+		}
+		return $novo;
+	}

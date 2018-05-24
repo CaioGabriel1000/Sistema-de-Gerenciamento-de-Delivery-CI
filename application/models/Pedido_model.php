@@ -38,7 +38,8 @@ class Pedido_model extends CI_Model
               ende.complemento complemento,
               b.nome bairro,
               c.nome cidade,
-              cli.nome cliente
+              cli.nome cliente,
+              cli.telefone telefone
             FROM
               pedido ped
             INNER JOIN
@@ -87,6 +88,7 @@ class Pedido_model extends CI_Model
         $this->db->select('pedido.atualizacao');
         $this->db->select('cliente.idCliente');
         $this->db->select('cliente.nome');
+        $this->db->select('cliente.telefone');
         
         $this->db->join('cliente', 'cliente.idCliente = pedido.cliente_idCliente');
         $this->db->order_by('idPedido', 'asc');

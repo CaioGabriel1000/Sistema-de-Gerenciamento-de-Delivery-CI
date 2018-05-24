@@ -16,8 +16,8 @@
 					</div>
 
 					<div class="form-label-group">
-						<label for="inputEmailLogin">Email</label>
-						<input id="inputEmailLogin" name="inputEmailLogin" class="form-control" placeholder="Email" required="" autofocus="" type="email" maxlength="45">
+						<label for="inputEmailLogin">Login</label>
+						<input id="inputEmailLogin" name="inputEmailLogin" class="form-control" placeholder="Login" required="" autofocus="" type="text" maxlength="45">
 					</div>
 
 					<div class="form-label-group">
