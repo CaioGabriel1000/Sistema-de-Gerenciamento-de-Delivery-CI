@@ -7,11 +7,11 @@
 
 	<!-- Logo -->
 	<div class="container">
-		<img src="<?php echo base_url('application/views/assets/img/logosfundo.png') ?>" class="rounded mx-auto d-block p-3" width="20%"> 
+		<img src="<?php echo base_url('application/views/assets/img/logosfundo.png') ?>" width="30%"> 
 	</div>
 
 	<!-- Conjunto de Ícones com texto -->
-	<div class="album py-5">
+	<div class="album py-4">
 		<div class="container">
 			<div class="row">
 				<!-- Icone mais texto explicativo -->

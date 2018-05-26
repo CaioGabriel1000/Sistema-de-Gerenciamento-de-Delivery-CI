@@ -20,6 +20,8 @@ class Pedido extends CI_Controller {
 
 	}
 
+	// PÁGINA DA LOJA
+
 	/*
 	 * Pagina de finalização do pedido
 	 * caso o cliente não esteja logado ele é direcionado para o login do cliente
@@ -28,7 +30,7 @@ class Pedido extends CI_Controller {
 	{
 		if(isset($_SESSION['idCliente'])) {
 
-			$dados['title'] = "SGD - Pedido";
+			$dados['title'] = "Ligeirinho - Pedido";
 			$this->load->view('components/head.php', $dados);
 
 			$dados['endereco']['cidades'] = $this->Endereco_model->get_all_cidade();
@@ -51,7 +53,7 @@ class Pedido extends CI_Controller {
 	{
 		if(isset($_SESSION['idCliente'])) {
 
-			$dados['title'] = "SGD - Pedidos Cliente";
+			$dados['title'] = "Ligeirinho - Pedidos Cliente";
 			$this->load->view('components/head.php', $dados);
 
 			$pedidos = $this->Pedido_model->get_all_pedido_cliente($_SESSION['idCliente']);
@@ -93,7 +95,7 @@ class Pedido extends CI_Controller {
 			$entrega = array(
 				'entregador' => $_SESSION['entregadorPadrao'],
 				'observacoes' => null,
-				'status' => 'aberto',
+				'status' => 'Aberto',
 				'endereco_idEndereco' => $endereco_id, 
 			);
 
@@ -103,7 +105,7 @@ class Pedido extends CI_Controller {
 				'valor' => $_SESSION['valorTotal'],
 				'formaPagamento' => $this->input->post('formaPagamento'),
 				'observacoes' => $this->input->post('observacoesEntrega'),
-				'status' => 'aberto',
+				'status' => 'Aberto',
 				'cliente_idCliente' => $_SESSION['idCliente'],
 				'entrega_idEntrega' => $entrega_id,
 			);
@@ -127,7 +129,7 @@ class Pedido extends CI_Controller {
 				'cliente_idCliente' => $_SESSION['idCliente'],
 				'valor' => $_SESSION['valorTotal'],
 				'observacoes' => $this->input->post('observacoes'),
-				'status' => 'aberto',
+				'status' => 'Aberto',
 			);
 			
 			$pedido_id = $this->Pedido_model->add_pedido($pedido);
@@ -145,6 +147,8 @@ class Pedido extends CI_Controller {
 
 		}
 	} 
+
+	// PÁGINA GERENCIAMENTO
 
 	/*
 	 * Pagina com todos os pedidos abertos exibidos no gerenciamento
@@ -183,7 +187,7 @@ class Pedido extends CI_Controller {
 			if($idPedido)
 			{
 				$params = array(
-					'status' => 'finalizado',
+					'status' => 'Finalizado',
 				);
 
 				$this->Pedido_model->update_pedido($idPedido,$params);

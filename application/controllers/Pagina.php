@@ -8,7 +8,7 @@ class Pagina extends CI_Controller {
 	// Página Inicial
 	public function index()
 	{
-		$dados['title'] = "SGD";
+		$dados['title'] = "Ligeirinho";
 
 		// Carregando o head, o corpo da página com o footer
 		$this->load->view('components/head.php', $dados);

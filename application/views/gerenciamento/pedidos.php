@@ -22,11 +22,11 @@
 			echo '<div class="col-xs-12 col-md-8">';
 			echo '<div class="my-3 p-3 box-shadow rounded">';
 			echo '<h3 class="p-3"> Pedido: '.$p['idPedido'].' - Valor: R$ '.formatar_preco($p['valor']).'</h3>';
-			echo '<hr>';
+			echo '<hr style="background-color: #563d7c; height: 1px; border: 0;">';
 			echo '<h6 class="p-1"> Atualizado em: '. (is_null($p['atualizacao']) ? formatarData($p['criacao']) : formatarData($p['atualizacao'])). '</h6>';
 			echo '<p class="p-1"><b>'.$p['nome'].'</b> - Telefone: '.formatarTelefone($p['telefone']).'</p>';
 			echo is_null($p['observacoes']) ? '' : '<p class="p-1"> Observação: '.$p['observacoes'].'</p>';
-			echo '<hr>';
+			echo '<hr style="background-color: #563d7c; height: 1px; border: 0;">';
 			echo '<p class="p-1">Produtos:</p>';
 			echo '<ul class="list-group col-md-12 p-3">';
 
@@ -39,7 +39,7 @@
 
 			echo '</ul>';
 
-			echo '<hr>';
+			echo '<hr style="background-color: #563d7c; height: 1px; border: 0;">';
 
 			if ($produtos[0]['logradouro'] != NULL) {
 				
@@ -49,7 +49,7 @@
 				echo '<p class="p-2">Retirar no local.</p>';
 			}
 
-			echo '<hr>';
+			echo '<hr style="background-color: #563d7c; height: 1px; border: 0;">';
 
 			if ($p['status'] == 'aberto') {
 				echo '<br>';

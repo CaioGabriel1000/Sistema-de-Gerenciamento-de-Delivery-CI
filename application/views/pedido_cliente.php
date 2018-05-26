@@ -29,7 +29,7 @@
 				echo '<div class="col-xs-12 col-md-8">';
 				echo '<div class="my-3 p-3 box-shadow rounded">';
 				echo '<h3> Pedido: '.$p['idPedido'].' - Status: '.$p['status'].' - Valor: R$ '.formatar_preco($p['valor']).'</h3>';
-				echo '<hr>';
+				echo '<hr style="background-color: #563d7c; height: 1px; border: 0;">';
 				echo '<h6> Atualizado em: '. (is_null($p['atualizacao']) ? formatarData($p['criacao']) : formatarData($p['atualizacao'])). '</h6>';
 				echo '<p>Produtos:</p>';
 				echo '<ul class="list-group col-md-12">';

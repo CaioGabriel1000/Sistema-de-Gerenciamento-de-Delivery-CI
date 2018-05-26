@@ -1,4 +1,4 @@
-<body style="background-image: url('<?php echo base_url('application/views/assets/img/logosfundo.png'); ?>');
+<body style="background-image: url('<?php echo base_url('application/views/assets/img/logosfundoGerenciamento.png'); ?>');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;">

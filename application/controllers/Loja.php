@@ -26,7 +26,7 @@ class Loja extends CI_Controller {
 	public function index()
 	{
 		$dados['produtos'] = $this->Produto_model->get_all_produto();
-		$dados['title'] = "SGD - Loja";
+		$dados['title'] = "Ligeirinho - Loja";
 		$this->load->view('components/head.php', $dados);
 		$this->load->view('loja.php');
 	}
@@ -37,7 +37,7 @@ class Loja extends CI_Controller {
 	 */
 	public function carrinho() 
 	{
-		$dados['title'] = "SGD - Carrinho";
+		$dados['title'] = "Ligeirinho - Carrinho";
 		$this->load->view('components/head.php', $dados);
 
 		foreach ($_SESSION['carrinho'] as $idProduto => $i) {

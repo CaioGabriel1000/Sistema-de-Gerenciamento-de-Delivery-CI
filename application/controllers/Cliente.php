@@ -17,13 +17,13 @@ class Cliente extends CI_Controller {
 	{
 		if(!isset($_SESSION['idCliente'])) {
 
-			$dados['title'] = "SGD - Login";
+			$dados['title'] = "Ligeirinho - Login";
 			$this->load->view('components/head.php', $dados);
 			$this->load->view('entrar_cadastrar.php');
 
 		} else {
 
-			$dados['title'] = "SGD - Conta";
+			$dados['title'] = "Ligeirinho - Conta";
 			$this->load->view('components/head.php', $dados);
 			$this->load->view('cliente.php');
 
@@ -36,12 +36,12 @@ class Cliente extends CI_Controller {
 	public function manutencao()
 	{
 		if(!isset($_SESSION['idAdministrador'])) {
-			$dados['title'] = "SGD - Gerenciamento Login";
+			$dados['title'] = "Ligeirinho - Gerenciamento Login";
 			$this->load->view('components/head.php', $dados);
 			$this->load->view('gerenciamento/entrar.php');
 
 		} else {
-			$dados['title'] = "SGD - Cliente Manutenção";
+			$dados['title'] = "Ligeirinho - Cliente Manutenção";
 			$this->load->view('components/head_gerenciamento.php', $dados);
 
 			$data['clientes'] = $this->Cliente_model->get_all_cliente();

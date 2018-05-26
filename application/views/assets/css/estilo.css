@@ -1,5 +1,4 @@
 .home-item {
-	opacity: 0.75; !important
 	background-color: #DAD0F2; !important
 	text-decoration: none; !important
 }
@@ -8,17 +7,19 @@
 }
 #nav{
 	background: #DAD0F2; !important
-	border: solid 2px #563d7c; !important
+	border: 2px solid #563d7c; !important
 }
 a {
-	color: black; !important
+	color: #563d7c; !important
 	text-decoration: none; !important
-	opacity: 1; !important
+}
+h2 {
+	color: #563d7c; !important
+	text-decoration: none; !important
 }
 i {
-	color: black; !important
+	color: #563d7c; !important
 	text-decoration: none; !important
-	opacity: 1; !important
 }
 a:hover {
 	text-decoration: none; !important
@@ -33,4 +34,7 @@ button {
 button * {
     color: white;
     display: inline;
+}
+.navbar {
+	border: solid 2px #563d7c; !important
 }
