@@ -34,10 +34,13 @@
 }
 .menu ul li:hover ul{
 	visibility: visible; 
+  z-index:10;
+  border: solid 2px #563d7c; !important
 }
 .menu a:hover{
 	background-color: #6c5d99; 
 	color: #FFFFFF; 
+  z-index:11;
 }
 .menu ul ul li{
 	float: none; 
@@ -166,6 +169,31 @@ button * {
   border: 1px solid black;
   height: 30px; !important
   box-shadow: 0px 0px 10px #FFFFFF;
+}
+#botao2 {
+  float: left;
+  background-color: #563d7c;
+  color: white;
+  padding: 5px 15px;
+  font: bold italic 12px verdana;
+  border-radius: 20px;
+  text-shadow: 0px 1px 0px black;
+  border: 1px solid black;
+  height: 30px; !important
+  box-shadow: 0px 0px 10px #FFFFFF;
+}
+#botao:hover{
+  color: black;
+  border: 1px solid white;
+  background: #d9d0f2; /*Old browsers */
+  background: -moz-linear-gradient(top, #d9d0f2 0%, #ece5ff 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9d0f2), color-stop(100%,#ece5ff 100%)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #d9d0f2 0%, #ece5ff 100%); /* Chrome10, Safari5.1+ */
+  background: -o-linear-gradient(top, #d9d0f2 0%, #ece5ff 100%); /* Opera 11.10 */
+  background: -ms-linear-gradient(top, #d9d0f2 0%, #ece5ff 100%); /* IE10+ */
+  background: linear-gradient(top, #d9d0f2 0%, #ece5ff 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d9d0f2', endColorstr='#ece5ff',GradientType=0); /*IE6-9*/
+  cursor: pointer;
 }
 #botao:hover{
   color: black;

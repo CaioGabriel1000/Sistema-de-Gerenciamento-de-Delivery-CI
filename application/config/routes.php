@@ -77,18 +77,21 @@ $route['pedido'] = 'Pedido/index';
 $route['gerenciamento'] = 'Administrador/index';
 
 // Rota com os pedidos do gerenciamento (abertos)
-$route['pedido_gerenciamento_abertos'] = 'Pedido/gerenciamento/aberto';
+$route['pedido_gerenciamento_abertos'] = 'Pedido/gerenciamento/Aberto';
 
 // Rota com os pedidos do gerenciamento (finalizados)
-$route['pedido_gerenciamento_finalizados'] = 'Pedido/gerenciamento/finalizado';
+$route['pedido_gerenciamento_finalizados'] = 'Pedido/gerenciamento/Finalizado';
 
-// Rota com os pedidos do gerenciamento (finalizados)
+// Rota com os pedidos do gerenciamento (cancelados)
+$route['pedido_gerenciamento_cancelados'] = 'Pedido/gerenciamento/Cancelado';
+
+// Rota do cadastro de produto
 $route['produto_gerenciamento_cadastro'] = 'Produto/index';
 
-// Rota com os pedidos do gerenciamento (finalizados)
+// Rota da manutenção de produtos
 $route['produto_gerenciamento_manutencao'] = 'Produto/manutencao';
 
-// Rota com os pedidos do gerenciamento (finalizados)
+// Rota da manutenção de clientes
 $route['cliente_gerenciamento_manutencao'] = 'Cliente/manutencao';
 
 // Rota do erro 404.

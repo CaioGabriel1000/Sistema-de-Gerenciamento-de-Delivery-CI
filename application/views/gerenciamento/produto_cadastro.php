@@ -16,7 +16,7 @@
 				<input id="descricao" name="descricao" type="text" required placeholder="Descrição do Produto" widht="190px" maxlength="100" />﻿
 			</div>
 			<div class="input-div" id="input-valor">Valor R$:&nbsp;&nbsp;&nbsp;&nbsp;
-				<input id="preco" name="preco" type="number" required placeholder="Apenas números" widht="60px" required min="0" minlength="3" maxlength="10" />
+				<input id="preco" name="preco" type="text" required placeholder="Apenas números" widht="60px" required />
 			</div>
 			<div class="input-div" id="input-valor">Quantidade:
 				<input id="quantidade" name="quantidade" type="number" required placeholder="Apenas números" widht="50px" required min="0" minlength="3" maxlength="10" />
@@ -83,6 +83,10 @@ $(document).ready(function(){
 			document.getElementById("#form-cadastro").reset();
 		}
 	});
+
+	// Mascaras nos inputs
+	$('#preco').mask('#.##0,00', {reverse: true});
+
 });
 
 </script>

@@ -60,7 +60,7 @@ class Produto extends CI_Controller{
 		{   
 			$params = array(
 				'nome' => $this->input->post('nome'),
-				'preco' => $this->input->post('preco'),
+				'preco' => $this->input->post('preco') * 100,
 				'descricao' => $this->input->post('descricao'),
 				'quantidade' => $this->input->post('quantidade'),
 				'imagem' => $this->input->post('imagem'),
@@ -93,7 +93,7 @@ class Produto extends CI_Controller{
 			{   
 				$params = array(
 					'nome' => $this->input->post('nome'),
-					'preco' => $this->input->post('preco'),
+					'preco' => $this->input->post('preco') * 100,
 					'descricao' => $this->input->post('descricao'),
 					'quantidade' => $this->input->post('quantidade'),
 				);

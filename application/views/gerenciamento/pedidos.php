@@ -51,8 +51,9 @@
 
 			echo '<hr style="background-color: #563d7c; height: 1px; border: 0;">';
 
-			if ($p['status'] == 'aberto') {
+			if ($p['status'] == 'Aberto') {
 				echo '<br>';
+				echo '<input type="submit" id="botao2" onclick="cancelar('.$p['idPedido'].')" value="Cancelar"/>';
 				echo '<input type="submit" id="botao" onclick="finalizar('.$p['idPedido'].')" value="Finalizar"/>';
 				echo '<br>';
 			}	
@@ -93,6 +94,25 @@
 			}
 		});
 		location.reload();
+	}	
+	function cancelar(idPedido) {
+
+		var result = confirm("Deletar pedido?");
+
+		if (result) {
+			$.ajax({
+				type : "POST",
+				url  : "<?php echo base_url('Pedido/cancelar')?>",
+				dataType : "JSON",
+				data : {
+					idPedido:idPedido
+				},
+				success: function(data){
+					alert(data);
+				}
+			});
+			location.reload();
+		}
 	}	
 </script>
 

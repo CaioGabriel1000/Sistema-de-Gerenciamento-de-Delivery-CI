@@ -159,7 +159,7 @@ class Pedido extends CI_Controller {
 
 		if(isset($_SESSION['idAdministrador'])) {
 
-			$dados['title'] = "SGD - Pedidos";
+			$dados['title'] = "SGD - Pedidos ".$status;
 			$this->load->view('components/head_gerenciamento.php', $dados);
 
 			$pedidos = $this->Pedido_model->get_pedido_status($status);
@@ -176,7 +176,7 @@ class Pedido extends CI_Controller {
 	}
 
 	/*
-	 * Editando pedido
+	 * Finalizando pedido
 	 */
 	public function finalizar()
 	{   
@@ -193,6 +193,37 @@ class Pedido extends CI_Controller {
 				$this->Pedido_model->update_pedido($idPedido,$params);
 
 				$mensagem = 'Pedido finalizado!';        
+				echo json_encode($mensagem);
+			}
+			else
+				$mensagem = 'Pedido não encontrado!';        
+				echo json_encode($mensagem);
+
+		} else {
+
+			redirect('/gerenciamento');
+
+		}
+	} 
+
+	/*
+	 * Cancelando pedido
+	 */
+	public function cancelar()
+	{   
+		$idPedido = $this->input->post('idPedido');
+
+		if(isset($_SESSION['idAdministrador'])) {
+		
+			if($idPedido)
+			{
+				$params = array(
+					'status' => 'Cancelado',
+				);
+
+				$this->Pedido_model->update_pedido($idPedido,$params);
+
+				$mensagem = 'Pedido cancelado!';        
 				echo json_encode($mensagem);
 			}
 			else
