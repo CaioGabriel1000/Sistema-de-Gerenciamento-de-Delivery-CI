@@ -194,34 +194,12 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- INSERTS
 -- ----------------------------------------------------
 
-
-INSERT INTO administrador (idAdministrador, email, senha) VALUES
-(1, 'admin@admin', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO cidade (idCidade, nome) VALUES
+(1, 'Belo Horizonte');
 
 INSERT INTO bairro (idBairro, nome, cidade_idCidade) VALUES
 (1, 'Hospitais', 1),
 (2, 'Centro', 1);
 
-INSERT INTO cidade (idCidade, nome) VALUES
-(1, 'Belo Horizonte');
-
-INSERT INTO cliente (idCliente, nome, telefone, email, senha, `status`) VALUES
-(1, 'caio', 31995213213, 'caionunes1997@gmail.com', '08e4e75472b3d85bed79e6b6bb2c9fda', 'ativo');
-
-INSERT INTO endereco (idEndereco, logradouro, numero, complemento, bairro_idBairro) VALUES
-(1, 'Rua Rio de Janeiro', '117', '3º andar', 2);
-
-INSERT INTO entrega (idEntrega, entregador, observacoes, `status`, criacao, atualizacao, endereco_idEndereco) VALUES
-(1, 'Motoboy 1', NULL, 'aberto', '2018-05-13 23:39:28', NULL, 1);
-
-INSERT INTO pedido (idPedido, valor, formaPagamento, observacoes, `status`, criacao, atualizacao, cliente_idCliente, entrega_idEntrega) VALUES
-(1, 1200, 'dinheiro', 'sem tomates', 'A', '2018-05-13 23:39:28', NULL, 1, 1);
-
-INSERT INTO pedido_produto (quantidade, pedido_idPedido, produto_idProduto) VALUES
-(2, 1, 4);
-
-INSERT INTO produto (idProduto, nome, preco, descricao, quantidade, imagem) VALUES
-(1, 'X TUDO', 1000, 'Hambúrguer, queijo, maionese, fatias de bacon, pernil, alface e tomate', 9, 'sanduiche.jpg'),
-(2, 'X BACON', 700, 'Hambúrguer, queijo, maionese, fatias de bacon, alface e tomate', 9, 'sanduiche.jpg'),
-(3, 'X PERNIL', 800, 'Hambúrguer, queijo, maionese, pernil, alface e tomate', 9, 'sanduiche.jpg'),
-(4, 'X FRANGO', 600, 'Hambúrguer, queijo, maionese, peito de frango, alface e tomate', 9, 'sanduiche.jpg');
+INSERT INTO administrador (idAdministrador, email, senha) VALUES
+(1, 'admin@admin', '21232f297a57a5a743894a0e4a801fc3');
