@@ -17,6 +17,9 @@
   <li>
     No arquivo "/application/config/database.php" faça a alteração dos dados do seu banco de dados (principalmente o nome do usário do SGBD 'username', a senha desse usuário 'password' e o nome do banco de dados 'database').
   </li>
+  <li>
+    O usuário padrão do lojista, que tem acesso ao módulo de gerenciamento, tem o login "admin@admin" e senha "admin".
+  </li>
 </ol>
 
 <h2>Recomendações</h2>
