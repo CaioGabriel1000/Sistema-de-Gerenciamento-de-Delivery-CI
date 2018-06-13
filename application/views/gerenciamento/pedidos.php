@@ -54,6 +54,12 @@
 			if ($p['status'] == 'Aberto') {
 				echo '<br>';
 				echo '<input type="submit" id="botao2" onclick="cancelar('.$p['idPedido'].')" value="Cancelar"/>';
+				echo '<input type="submit" id="botao" onclick="pagar('.$p['idPedido'].')" value="Pagar"/>';
+				echo '<br>';
+			}	
+			if ($p['status'] == 'Pago') {
+				echo '<br>';
+				echo '<input type="submit" id="botao2" onclick="cancelar('.$p['idPedido'].')" value="Cancelar"/>';
 				echo '<input type="submit" id="botao" onclick="finalizar('.$p['idPedido'].')" value="Finalizar"/>';
 				echo '<br>';
 			}	
@@ -94,7 +100,7 @@
 			}
 		});
 		location.reload();
-	}	
+	}
 	function cancelar(idPedido) {
 
 		var result = confirm("Deletar pedido?");
@@ -113,7 +119,22 @@
 			});
 			location.reload();
 		}
-	}	
+	}
+	function pagar(idPedido) {
+		$.ajax({
+			type : "POST",
+			url  : "<?php echo base_url('Pedido/pagar')?>",
+			dataType : "JSON",
+			data : {
+				idPedido:idPedido
+			},
+			success: function(data){
+				alert(data);
+				console.log(JSON.parse(data));
+			}
+		});
+		location.reload();
+	}
 </script>
 
 </body>

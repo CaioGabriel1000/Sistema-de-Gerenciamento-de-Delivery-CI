@@ -194,10 +194,12 @@ class Pedido extends CI_Controller {
 
 				$mensagem = 'Pedido finalizado!';        
 				echo json_encode($mensagem);
+				return true;
 			}
 			else
 				$mensagem = 'Pedido não encontrado!';        
 				echo json_encode($mensagem);
+				return true;
 
 		} else {
 
@@ -225,10 +227,45 @@ class Pedido extends CI_Controller {
 
 				$mensagem = 'Pedido cancelado!';        
 				echo json_encode($mensagem);
+				return true;
 			}
 			else
 				$mensagem = 'Pedido não encontrado!';        
 				echo json_encode($mensagem);
+				return true;
+
+		} else {
+
+			redirect('/gerenciamento');
+
+		}
+	} 
+
+	/*
+	 * Pagando pedido
+	 */
+	public function pagar()
+	{   
+		$idPedido = $this->input->post('idPedido');
+
+		if(isset($_SESSION['idAdministrador'])) {
+		
+			if($idPedido)
+			{
+				$params = array(
+					'status' => 'Pago',
+				);
+
+				$this->Pedido_model->update_pedido($idPedido,$params);
+
+				$mensagem = 'Pedido pago!';        
+				echo json_encode($mensagem);
+				return true;
+			}
+			else
+				$mensagem = 'Pedido não encontrado!';        
+				echo json_encode($mensagem);
+				return true;
 
 		} else {
 

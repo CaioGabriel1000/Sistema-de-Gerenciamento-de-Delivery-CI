@@ -85,6 +85,9 @@ $route['pedido_gerenciamento_finalizados'] = 'Pedido/gerenciamento/Finalizado';
 // Rota com os pedidos do gerenciamento (cancelados)
 $route['pedido_gerenciamento_cancelados'] = 'Pedido/gerenciamento/Cancelado';
 
+// Rota com os pedidos do gerenciamento (pagos)
+$route['pedido_gerenciamento_pagos'] = 'Pedido/gerenciamento/Pago';
+
 // Rota do cadastro de produto
 $route['produto_gerenciamento_cadastro'] = 'Produto/index';
 

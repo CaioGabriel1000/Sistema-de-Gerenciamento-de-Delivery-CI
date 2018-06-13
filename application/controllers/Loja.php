@@ -57,9 +57,14 @@ class Loja extends CI_Controller {
 		$idProduto = $this->input->post('idProduto');
 		$quantidade = $this->input->post('quantidade');
 
-		$_SESSION['carrinho'][$idProduto] = $quantidade;
+		if (isset($_SESSION['carrinho'][$idProduto])) {
+			$_SESSION['carrinho'][$idProduto]  += $quantidade;
+		} else {
+			$_SESSION['carrinho'][$idProduto]  = $quantidade;
+		}
 
 		echo json_encode('Produto adicionado ao carrinho!');
+		return true;
 		
 	}
 
@@ -73,6 +78,7 @@ class Loja extends CI_Controller {
 		unset($_SESSION['carrinho'][$idProduto]);
 
 		echo json_encode('Produto removido do carrinho!');
+		return true;
 	}
 	
 }

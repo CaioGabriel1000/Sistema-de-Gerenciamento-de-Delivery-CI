@@ -81,11 +81,13 @@ class Cliente extends CI_Controller {
 
 			$mensagem = 'Email já cadastrado! Por favor, entre em sua conta.';
 			echo json_encode($mensagem);
+			return true;
 
 		} elseif ($cadastrado && $cadastrado['status'] == 'bloqueado') {
 
 			$mensagem = 'Usuário bloqueado. Por favor, entre em contato com o suporte.';
 			echo json_encode($mensagem);
+			return true;
 
 		} else {
 
@@ -93,6 +95,7 @@ class Cliente extends CI_Controller {
 
 			$mensagem = 'Cadastro realizado com sucesso! Por favor, entre em sua conta.';
 			echo json_encode($mensagem);
+			return true;
 
 		}
 
@@ -126,11 +129,13 @@ class Cliente extends CI_Controller {
 
 			$mensagem = 'Usuário inativo ou bloqueado. Por favor, entre em contato com o suporte.';
 			echo json_encode($mensagem);
+			return true;
 
 		} else {
 
 			$mensagem = 'Email ou senha incorretos!';
 			echo json_encode($mensagem);
+			return true;
 
 		}
 	}  

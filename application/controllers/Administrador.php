@@ -49,10 +49,13 @@ class Administrador extends CI_Controller{
 
 			$this->index();
 
+			return true;
+
 		} else {
 
 			$mensagem = 'Email ou senha incorretos!';
 			echo json_encode($mensagem);
+			return true;
 
 		}
 	}  
