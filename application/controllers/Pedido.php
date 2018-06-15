@@ -175,6 +175,42 @@ class Pedido extends CI_Controller {
 		}
 	}
 
+	// PÁGINA RELATÓRIOS
+
+	/*
+	 * Pagina relatorio dos pedidos
+	 * caso o admin não esteja logado ele é direcionado para o login do admin
+	 */
+	public function relatorio($status) 
+	{
+
+		if(isset($_SESSION['idAdministrador'])) {
+
+			$dtInicial = is_null($this->input->post('dtInicial')) ? '2018-01-01': $this->input->post('dtInicial');
+			$dtFinal = is_null($this->input->post('dtFinal')) ? '2018-12-01' : $this->input->post('dtFinal');
+
+			$dados['title'] = "SGD - Relatório ".$status;
+			$this->load->view('components/head_gerenciamento.php', $dados);
+
+			$pedidos = $this->Pedido_model->get_pedido_relatorio($status, $dtInicial, $dtFinal);
+
+			$dados['pedidos'] = $pedidos;
+
+			$dados['status'] = $status;
+
+			$dados['dtInicial'] = $dtInicial;
+
+			$dados['dtFinal'] = $dtFinal;
+			
+			$this->load->view('gerenciamento/pedidos_relatorio.php', $dados);
+
+		} else {
+
+			redirect('/gerenciamento');
+
+		}
+	}
+
 	/*
 	 * Finalizando pedido
 	 */

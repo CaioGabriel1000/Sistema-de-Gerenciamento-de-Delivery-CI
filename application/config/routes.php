@@ -88,6 +88,18 @@ $route['pedido_gerenciamento_cancelados'] = 'Pedido/gerenciamento/Cancelado';
 // Rota com os pedidos do gerenciamento (pagos)
 $route['pedido_gerenciamento_pagos'] = 'Pedido/gerenciamento/Pago';
 
+// Rota com o relatorio dos pedidos (abertos)
+$route['pedido_relatorio_abertos'] = 'Pedido/relatorio/Aberto';
+
+// Rota com o relatorio dos pedidos (finalizados)
+$route['pedido_relatorio_finalizados'] = 'Pedido/relatorio/Finalizado';
+
+// Rota com o relatorio dos pedidos (cancelados)
+$route['pedido_relatorio_cancelados'] = 'Pedido/relatorio/Cancelado';
+
+// Rota com o relatorio dos pedidos (pagos)
+$route['pedido_relatorio_pagos'] = 'Pedido/relatorio/Pago';
+
 // Rota do cadastro de produto
 $route['produto_gerenciamento_cadastro'] = 'Produto/index';
 

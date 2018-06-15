@@ -63,6 +63,49 @@ class Pedido_model extends CI_Model
         return $this->db->query($sql, $idPedido)->result_array();
 
     }
+
+  /*
+   * Selecionando todos os dados relevantes sobre os pedidos de um determinado status criados num determinado intervalo
+   */
+    function get_pedido_relatorio($status, $dtInicial, $dtFinal)
+    {
+
+        $sql = "
+            SELECT
+              ped.idPedido idPedido,
+              ped.valor valor_pedido,
+              ped.formaPagamento formaPagamento_pedido,
+              ped.observacoes observacoes_pedido,
+              ped.status status_pedido,
+              ped.criacao criacao_pedido,
+              ped.atualizacao atualizacao_pedido,
+              ende.logradouro logradouro,
+              ende.numero numero,
+              ende.complemento complemento,
+              b.nome bairro,
+              c.nome cidade,
+              cli.nome cliente,
+              cli.telefone telefone
+            FROM
+              pedido ped
+            INNER JOIN
+              cliente cli ON cli.idCliente = ped.cliente_idCliente
+            LEFT JOIN
+              entrega ent ON ent.idEntrega = ped.entrega_idEntrega
+            LEFT JOIN
+              endereco ende ON ende.idEndereco = ent.endereco_idEndereco
+            LEFT JOIN
+              bairro b ON b.idBairro = ende.bairro_idBairro
+            LEFT JOIN
+              cidade c ON c.idCidade = b.cidade_idCidade
+            WHERE ped.status = ?
+              AND ped.criacao >= ?
+              AND ped.criacao <= ?
+        ";
+
+        return $this->db->query($sql, array($status, $dtInicial, $dtFinal))->result_array();
+
+    }
     
     /*
      * Selecionando pedido por idPedido
