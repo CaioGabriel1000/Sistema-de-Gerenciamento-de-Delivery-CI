@@ -1,6 +1,9 @@
 # Sistema-de-Gerenciamento-de-Delivery
+
 <p>Sistema para gerenciar os processos de delivery de um estabelecimento de fast-food.</p>
 <p>Desenvolvido para a ASPITEC 2018 ADS3 da Faculdade de Ciências Sociais Aplicadas de Belo Horizonte (FACISABH).</p>
+<p><b>Atenção! Esse software é um protótipo, portanto está incompleto e descontinuado.</b> A evolução desse software é o Sistema Gerenciador de Solicitações de Entrega, acesse o repositório:</p>
+<p>https://github.com/CaioGabriel1000/Sistema-Gerenciador-de-Solicitacoes-de-Entrega</p>
 
 <h2>Processo de instalação</h2>
 
@@ -18,21 +21,14 @@
     No arquivo "/application/config/database.php" faça a alteração dos dados do seu banco de dados (principalmente o nome do usário do SGBD 'username', a senha desse usuário 'password' e o nome do banco de dados 'database').
   </li>
   <li>
-    O usuário padrão do lojista, que tem acesso ao módulo de gerenciamento, tem o login "admin@admin" e senha "admin".
+    O usuário padrão do lojista, que tem acesso ao módulo de gerenciamento é "admin@admin" e senha "admin".
   </li>
 </ol>
 
 <h2>Recomendações</h2>
-<p>Leia com atenção, pois o sistema foi projetado e testado para operar nas seguintes condições:</p>
 
 <ol>
   <li>
     Utilize um servidor lamp atualizado, com Apache2, PHP 5.6 ou mais recente e MySQL.
-  </li>
-  <li>
-    Utilize o Google Chrome 66 ou mais recente.
-  </li>
-  <li>
-    Também é possível testar a versão online, hospedada em: http://caio-teste.16mb.com/ 
   </li>
 </ol>
